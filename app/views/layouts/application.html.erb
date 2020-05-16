@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QueMePongo</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+  </head>
+
+  <body>
+    <header>
+    <div class="container nav-container">
+      <h1>Que me pongo</h1>
+      <nav class="navigation">
+        <ul>
+          <li><a href="#">Quienes Somos</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Guardarropas</a></li>
+        </ul>
+      </nav>
+    </div>
+    </header>
+    <main>
+    <div class="prendas-view">
+    <table class="guardarropa">
+      <tr>
+        <th> <strong>Id</strong> </th>
+        <th> <strong>Textura</strong> </th>
+        <th> <strong>Color</strong> </th>
+        <th> <strong>Color Secundario</strong> </th>
+        <th> <strong>Categoria</strong> </th>
+        <th> <strong>Tipo de Prenda</strong> </th>
+      </tr>
+      <tr>
+        <td> <%= yield :id %></td>
+        <td> <%= yield :textura %> </td>
+        <td> <%= yield :color %> </td>
+        <td> <%= yield :color_secundario %> </td>
+        <td> <%= yield :categoria %> </td>
+        <td> <%= yield :tipo %>  </td>
+      </tr>
+    </table>
+    </div>
+    </main>
+  </body>
+</html>

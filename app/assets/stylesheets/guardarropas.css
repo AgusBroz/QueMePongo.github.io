@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+body{
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+header{
+    background-color: rgb(29, 27, 27);
+}
+.container{
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+.nav-container h1{
+    color: white;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 3px;
+}
+.navigation ul{
+    list-style: none;
+}
+.navigation ul li{
+    display: inline-block;
+    padding: 10px;
+}
+.navigation ul li a{
+    color: rgb(255, 255, 255);
+    transition: all 0.2s linear;
+    text-decoration: none;
+    font-size: 0.95em;
+    text-transform: uppercase;
+    padding: 13px;
+}
+.navigation ul li a:hover{
+    background-color: rgb(53, 46, 46);
+}
+.prendas-view{
+    width: 100%;
+    display: flex;
+}
+.guardarropa{
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+.guardarropa th{ 
+    padding: 15px;
+    text-align: center;
+    background-color: rgb(51, 46, 51);
+    border: solid 2.5px black;
+    color: white;
+}
+.guardarropa td{
+    text-align: center;
+    color: white;
+    background-color: rgb(80, 67, 80);
+    border: 2.5px solid black;
+}
