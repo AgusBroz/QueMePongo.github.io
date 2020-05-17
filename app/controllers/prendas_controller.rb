@@ -12,4 +12,16 @@ class PrendasController < ApplicationController
         Prenda.destroy(params[:id].to_i)
     end 
 
+    def create
+        @prenda = Prenda.new
+        @prenda.categoria=params[:categoria]
+  
+        if @prenda.save
+           redirect_to :action => 'index'
+        end
+     end
+
+    def new
+    end
+
 end

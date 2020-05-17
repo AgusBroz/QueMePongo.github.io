@@ -1,5 +1,18 @@
 <div>
-    <% @prendas.each do |p| %>
-        <%= render 'prenda', prenda: p %>
-    <%end%>
+<div class="prendas-view">
+    <table class="guardarropa">
+      <tr>
+        <th> <strong>Id</strong> </th>
+        <th> <strong>Textura</strong> </th>
+        <th> <strong>Color</strong> </th>
+        <th> <strong>Color Secundario</strong> </th>
+        <th> <strong>Categoria</strong> </th>
+        <th> <strong>Tipo de Prenda</strong> </th>
+      </tr>
+        <% @prendas.each do |p| %>
+            <%= render 'prenda', prenda: p %>
+        <%end%>
+    </table>
+    </div>
+   
 </div>

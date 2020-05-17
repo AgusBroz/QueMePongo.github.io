@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   #resources :prendas
 
+  post 'prenda', to: 'prendas#create'
   get 'prendas/new', to: 'prendas#new'
   get 'prendas', to: 'prendas#index'
   get 'prendas/:id', to: 'prendas#show'
@@ -10,6 +11,5 @@ Rails.application.routes.draw do
   delete 'prendas/:id', to: 'prendas#destroy'
   put 'prendas/:id', to: 'prendas#update'
   patch 'prendas/:id', to: 'prendas#update'
-  post 'prendas', to: 'prendas#create'
 
 end

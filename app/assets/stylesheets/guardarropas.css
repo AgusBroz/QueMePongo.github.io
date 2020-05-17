@@ -52,6 +52,9 @@ header{
     border-collapse: collapse;
     text-align: center;
 }
+.guardarropa td{
+    padding:12px;
+}
 .guardarropa th{ 
     padding: 15px;
     text-align: center;

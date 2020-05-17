@@ -1,28 +1,10 @@
 <div>
-    <% content_for :id do %>
-       <p><%= prenda.id %></p>
-    <% end %>  
-    <br>
-    <% content_for :textura do %>
-        <p><%= prenda.textura %></p>
-    <% end %>  
-    <br>
-    <% content_for :color do %>
-       <p><%= prenda.color %></p>
-    <% end %>  
-    <br>
-    <% content_for :color_secundario do %>
-        <p> <%= prenda.color_secundario %></p>
-    <% end %>  
-    <br>
-    <% content_for :categoria do %>
-     <p><%= prenda.categoria %></p>
-    <% end %>  
-    <br>
-    <% content_for :tipo do %>
-        <p><%= prenda.tipo %></p>
-    <% end %>  
-    <br>
-    <br>
-    <br>
+<tr>
+    <td><%= prenda.id %></td>
+    <td><%= prenda.textura %></td>
+    <td><%= prenda.color %></td><br>
+    <td><%= prenda.color_secundario %></td>
+    <td><%= prenda.categoria %></td>
+    <td><%= prenda.tipo %></td>
+</tr>
 </div>
