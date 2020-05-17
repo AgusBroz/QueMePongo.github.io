@@ -4,6 +4,9 @@ body{
     margin: 0;
     font-size: 16px;
 }
+
+/* HEADER */
+
 header{
     background-color: rgb(29, 27, 27);
 }
@@ -37,6 +40,9 @@ header{
 .navigation ul li a:hover{
     background-color: rgb(53, 46, 46);
 }
+
+/* MAIN */
+
 .prendas-view{
     width: 100%;
     display: flex;
@@ -58,4 +64,33 @@ header{
     color: white;
     background-color: rgb(80, 67, 80);
     border: 2.5px solid black;
+}
+
+/* FOOTER */
+footer{
+    min-width: 100%;
+    background-color: rgb(29, 27, 27);
+    color: white;
+    position: fixed;
+    bottom: 0;
+}
+footer p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+footer a:visited{
+    color: white;
+}
+.socialMedia{
+    display: flex;
+}
+.socialMedia i{
+    padding: 10px;
+}
+.footer-text{
+    display: flex;
+}
+.footer-text a{
+    text-decoration: none;
+    color: white;
+    padding:30px 15px
 }
