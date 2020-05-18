@@ -68,6 +68,10 @@ header{
     background-color: rgb(80, 67, 80);
     border: 2.5px solid black;
 }
+.guardarropa a{
+    color:white;
+    text-decoration: none;
+}
 
 /* FOOTER */
 footer{
@@ -88,8 +92,6 @@ footer a:visited{
 }
 .socialMedia i{
     padding: 10px;
-}
-.footer-text{
 }
 .footer-text a{
     text-decoration: none;
