@@ -8,11 +8,12 @@
         <th> <strong>Color Secundario</strong> </th>
         <th> <strong>Categoria</strong> </th>
         <th> <strong>Tipo de Prenda</strong> </th>
+        <th></th>
       </tr>
         <% @prendas.each do |p| %>
             <%= render 'prenda', prenda: p %>
         <%end%>
     </table>
     </div>
-   
+    <p><%= link_to "Agergar Prenda", new_prenda_path%><p>
 </div>

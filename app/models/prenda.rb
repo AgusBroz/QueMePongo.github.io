@@ -1,3 +1,3 @@
-class Prenda < ApplicationRecord # < ActiveRecord {[( MAGIA DE RAILS )]}
+class Prenda < ApplicationRecord # < ActiveRecord 
 
 end
