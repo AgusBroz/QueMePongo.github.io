@@ -1,5 +1,9 @@
 class PrendasController < ApplicationController
 
+    def prenda_params
+        params.require(:prenda).permit(:categoria, :color, :color_secundario, :textura, :tipo)
+        
+    end
     def index
         @prendas = Prenda.all
     end
@@ -26,17 +30,12 @@ class PrendasController < ApplicationController
             render "new"
         end
     end
-    def prenda_params
-    params.require(:prenda).permit(:categoria, :color, :color_secundario, :textura, :tipo)
-    end
-    
     def edit
-        @prenda = Prenda.find (params [:id].to_i)
+        @prenda = Prenda.find (params[:id].to_i)
     end
 
-    
     def update
-        @prenda = Prenda.find(params [:id].to_i)
+        @prenda = Prenda.find(params[:id].to_i)
 
         if @prenda.update_attributes(params[:prenda])
             redirect_to "index", notice => "La prenda se modifico exitosamente"

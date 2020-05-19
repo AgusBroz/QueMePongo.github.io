@@ -9,6 +9,7 @@ body{
 
 header{
     background-color: rgb(29, 27, 27);
+    height: 10vh;
 }
 .container{
     width: 85%;
@@ -27,7 +28,6 @@ header{
 }
 .navigation ul li{
     display: inline-block;
-    padding: 10px;
 }
 .navigation ul li a{
     color: rgb(255, 255, 255);
@@ -42,10 +42,16 @@ header{
 }
 
 /* MAIN */
-
+main{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .prendas-view{
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 .guardarropa{
@@ -73,14 +79,66 @@ header{
     color:white;
     text-decoration: none;
 }
+.guardarropa a:hover{
+    text-decoration: underline;
+}
+.add-btn{
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+}
+.add-btn a{
+    text-decoration: none;
+    padding: 15px;
+    background-color: rgb(80, 67, 80);
+    color: white;
+    box-shadow: 3px 3px black;
+   /* border-right: 3px solid black;
+    border-bottom: 3px solid black;*/
+}
+.add-btn a:hover{
+    background-color: rgb(58, 53, 58);
+    transition: all 0.2s linear;
+    box-shadow: none;
+    border: none;
+}
+
+/* FORM*/
+
+.new-edit-form{
+    text-align: center;
+    background-color: rgb(80, 67, 80);
+    padding: 15px;
+    border-radius: 12px;
+    color: white;
+    border: 5px solid black;
+    -webkit-box-shadow: 14px 14px 13px -3px rgba(0,0,0,1);
+    -moz-box-shadow: 14px 14px 13px -3px rgba(0,0,0,1);
+}
+input{
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    text-align: center;
+  }
+
+input[type="submit"]{
+      font-size: 1rem;
+      padding: 15px;
+      background-color:rgb(65, 58, 65);
+      pointer-events: visible;
+      color: white;
+}
+input[type="submit"]:hover{
+    background-color: rgb(58, 53, 58);
+    transition: all 0.2s linear;
+}
 
 /* FOOTER */
+
 footer{
     min-width: 100%;
     background-color: rgb(29, 27, 27);
     color: white;
-    position: fixed;
-    bottom: 0;
 }
 footer p{
     font-family: Arial, Helvetica, sans-serif;
@@ -90,6 +148,7 @@ footer a:visited{
 }
 .socialMedia{
     display: flex;
+    padding: 10px;
 }
 .socialMedia i{
     padding: 10px;
@@ -100,16 +159,3 @@ footer a:visited{
     padding: 30px 10px 30px 0;
 }
 
-.boton{
- text-decoration: none;
- padding: 15px;
- background-color: rgb(80, 67, 80);
- color: white;
- border: 2px solid black;
- margin-top: 2%;
-}
-
-.botones{
-    display: flex;
-    justify-content: center;
-}

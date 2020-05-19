@@ -1,5 +1,5 @@
 <div>
-<div class="prendas-view">
+  <div class="prendas-view">
     <table class="guardarropa">
       <tr>
         <th> <strong>Id</strong> </th>
@@ -15,10 +15,11 @@
             <%= render 'prenda', prenda: p %>
         <%end%>
     </table>
-    </div>
+  </div>
+  <div class= "add-btn">
+      <%= link_to "Agregar Prenda", new_prenda_path%>
+  </div>
 
-    <div class= botones>
-    <a class=boton href="http://localhost:3000/prendas/new">Agregar Prenda</a>
-    </div>
+   
 
 </div>
