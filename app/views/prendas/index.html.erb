@@ -1,8 +1,7 @@
 <div>
   <div class="prendas-view">
     <table class="guardarropa">
-         <tr>  <%= render 'atributos_prenda' %> </tr>
-
+         <tr>  <%= render 'atributos_prenda', show: @prendas.present? %> </tr>
         <% @prendas.each do |p| %>
             <%= render 'prenda', prenda: p %>
         <%end%>

@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_16_195813) do
+ActiveRecord::Schema.define(version: 2020_05_20_220901) do
 
   create_table "prendas", force: :cascade do |t|
-    t.string "categoria"
+    t.integer "categoria"
     t.string "color"
     t.string "color_secundario"
     t.string "textura"

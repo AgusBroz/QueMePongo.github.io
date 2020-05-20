@@ -3,7 +3,7 @@
 <%= form_for @prenda do |f|%>
   <p>
         <%= f.label :categoria%><br />
-        <%= f.select(:categoria,['Cabeza','Torso','Piernas','Pies'])%>
+        <%= f.select(:categoria, options_for_select(Prenda.categoria))%>
     </p>
     <p>
         <%= f.label :color%><br />
