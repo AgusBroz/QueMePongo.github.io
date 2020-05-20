@@ -1,8 +1,7 @@
 class PrendasController < ApplicationController
 
     def prenda_params
-        params.require(:prenda).permit(:categoria, :color, :color_secundario, :textura, :tipo)
-        
+        params.require(:prenda).permit(:categoria, :color, :color_secundario, :textura, :tipo)     
     end
     def index
         @prendas = Prenda.all
@@ -14,8 +13,9 @@ class PrendasController < ApplicationController
     
     def destroy
         Prenda.destroy(params[:id].to_i)
-        @prenda.destroy
+        if @prenda.destroy
         redirect_to "index", notice => "La prenda se elimino"
+        end
     end 
 
     def new
@@ -25,7 +25,7 @@ class PrendasController < ApplicationController
     def create
         @prenda=Prenda.new(prenda_params)
         if @prenda.save
-            redirect_to 'index',notice=> "La prenda se creó exitosamente"
+            redirect_to 'index',flash[:notice]=> "La prenda se creó exitosamente"
         else
             render "new"
         end
@@ -37,8 +37,8 @@ class PrendasController < ApplicationController
     def update
         @prenda = Prenda.find(params[:id].to_i)
 
-        if @prenda.update_attributes(params[:prenda])
-            redirect_to "index", notice => "La prenda se modifico exitosamente"
+        if @prenda.update_attributes(prenda_params)
+            redirect_to "index", flash[:notice] => "La prenda se modifico exitosamente"
 
         else
             render ":edit"

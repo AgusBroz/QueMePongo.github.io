@@ -120,6 +120,8 @@ input{
     border-radius: 5px;
     text-align: center;
   }
+  input[type="select"]{
+  }
 
 input[type="submit"]{
       font-size: 1rem;

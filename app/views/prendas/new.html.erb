@@ -3,7 +3,7 @@
 <%= form_for @prenda do |f|%>
     <p>
         <%= f.label :categoria%><br />
-        <%= f.text_field :categoria%>
+        <%= f.select(:categoria,['Cabeza','Torso','Piernas','Pies'])%>
     </p>
     <p>
         <%= f.label :color%><br />
@@ -15,11 +15,11 @@
     </p>
     <p>
         <%= f.label :textura%><br />
-        <%= f.text_field :textura%>
+        <%= f.select(:textura,['Algodon','Cuero','Gabardina','Nylon','Jean'])%>
     </p>
     <p>
         <%= f.label :tipo%><br />
-        <%= f.text_field :tipo%>
+        <%= f.select(:tipo,['Gorro','Sombrero','Remera','Buzo','Campera','Pantalon','Zapatos','Zapatillas'])%>
     </p>
     <p>
         <%= f.submit "Agregar Prenda"%>
