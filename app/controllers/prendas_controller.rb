@@ -1,8 +1,5 @@
 class PrendasController < ApplicationController
 
-    def prenda_params
-        params.require(:prenda).permit(:categoria, :color, :color_secundario, :textura, :tipo)     
-    end
     def index
         @prendas = Prenda.all
     end
@@ -43,5 +40,10 @@ class PrendasController < ApplicationController
         else
             render ":edit"
         end
+    end
+
+    private
+    def prenda_params
+       params.require(:prenda).permit(:categoria, :color, :color_secundario, :textura, :tipo)     
     end
 end
