@@ -10,7 +10,7 @@
         <th> <strong>Tipo de Prenda</strong> </th>
         <th></th>
         <th></th>
-                <th></th>
+        <th></th>
       </tr>
         <% @prendas.each do |p| %>
             <%= render 'prenda', prenda: p %>
@@ -20,7 +20,4 @@
   <div class= "add-btn">
       <%= link_to "Agregar Prenda", new_prenda_path%>
   </div>
-
-   
-
 </div>
