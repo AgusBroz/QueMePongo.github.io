@@ -3,9 +3,7 @@ body{
     padding: 0;
     margin: 0;
     font-size: 16px;
-    background-image: url(https://i.pinimg.com/564x/26/6c/44/266c44f4d5e4b96af11fed54448b3ed1.jpg); background-repeat: no-repeat;
-    background-size: cover;
-    
+   
 }
 
 /* HEADER */
@@ -50,6 +48,9 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(https://images7.alphacoders.com/382/382041.jpg); 
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .prendas-view{
     width: 100%;
