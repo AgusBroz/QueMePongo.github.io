@@ -6,8 +6,18 @@
     <td><%= prenda.color_secundario %></td>
     <td><%= prenda.categoria %></td>
     <td><%= prenda.tipo %></td>
-    <td><%= link_to "Editar Prenda", edit_prenda_path(prenda) %></td>
-    <td><%= link_to "Ver Prenda",prenda %></td>
-    <td><%= link_to 'Destroy', prenda, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+    <td colspan="3">
+    <%= link_to edit_prenda_path(prenda) do %>
+        <i class="far fa-edit fa-2x"></i> 
+    <% end %>
+
+    <%= link_to prenda do%>
+        <i class="far fa-eye fa-2x"></i>
+    <% end %>
+
+    <%= link_to prenda, method: :delete, data: { confirm: 'Estas Seguro?' } do%>
+        <i class="far fa-trash-alt fa-2x"></i>
+    <% end %>
+    </td> 
 </tr>
 </div>

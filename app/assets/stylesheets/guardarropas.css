@@ -83,8 +83,8 @@ main{
     color:white;
     text-decoration: none;
 }
-.guardarropa a:hover{
-    text-decoration: underline;
+.guardarropa i{
+    padding: 0 6px;
 }
 .add-btn{
     display: flex;
@@ -106,7 +106,6 @@ main{
     box-shadow: none;
     border: none;
 }
-
 /* FORM*/
 
 .new-edit-form{

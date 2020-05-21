@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_220901) do
+ActiveRecord::Schema.define(version: 2020_05_21_162217) do
 
   create_table "prendas", force: :cascade do |t|
     t.integer "categoria"
     t.string "color"
     t.string "color_secundario"
-    t.string "textura"
-    t.string "tipo"
+    t.integer "textura"
+    t.integer "tipo"
   end
 
 end

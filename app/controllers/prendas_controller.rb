@@ -7,12 +7,11 @@ class PrendasController < ApplicationController
     end
 
     def show
-        
     end
     
     def destroy
         if @prenda.destroy
-        redirect_to "index", notice => "La prenda se elimino"
+            redirect_to prendas_path, notice => "La prenda se elimino"
         end
     end 
 
@@ -23,22 +22,21 @@ class PrendasController < ApplicationController
     def create
         @prenda=Prenda.new(prenda_params)
         if @prenda.save
-            redirect_to prendas_path,flash[:notice]=> "La prenda se creó exitosamente"
+            redirect_to prendas_path,notice: "AGREGAR YML"
         else
-            render "new"
+            render new_prenda_path
         end
     end
 
     def edit
-
     end
 
     def update
 
         if @prenda.update_attributes(prenda_params)
-            redirect_to "index", flash[:notice] => "La prenda se modifico exitosamente"
+            redirect_to prendas_path, notice: "AGREGAR YML"
         else
-            render :edit
+            render edit_prenda_path
         end
     end
 
@@ -46,7 +44,7 @@ class PrendasController < ApplicationController
     def prenda_params
        params.require(:prenda).permit(:categoria, :color, :color_secundario, :textura, :tipo)     
     end
-    
+
     def set_prenda
         @prenda= Prenda.find(params[:id].to_i)
     end
