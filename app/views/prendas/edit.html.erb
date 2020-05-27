@@ -1,7 +1,6 @@
 <div class="new-edit-form">
 <h1>Editar Prenda</h1>
 <%= form_for @prenda do |f|%>
-
     <p>
         <%= f.label :textura%><br />
         <%= f.select(:textura, options_for_select(Prenda.texturas.keys.to_a))%>
@@ -11,7 +10,7 @@
         <%= f.label :color%><br />
         <%= f.color_field :color%>
     </p>
-    <p>
+    <p >
         <%= f.label :color_secundario%><br />
         <%= f.color_field :color_secundario%>
     </p>
@@ -24,7 +23,7 @@
         <%= f.select(:tipo, options_for_select(Prenda.tipos.keys.to_a))%>
     </p>
     <p>
-        <%= f.submit "Guardar Cambios"%>
+        <%= f.submit "Guardar" %>
     </p>
 <%end%>
 </div>

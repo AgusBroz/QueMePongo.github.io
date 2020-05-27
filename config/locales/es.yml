@@ -1,3 +1,4 @@
 es:
-  hello: "Hola Mundo"
-  prenda_created: "La prenda se creó exitosamente "
+  created: "Se creó exitosamente"
+  deleted: "Se elimino correctamente"
+  updated: "Se actualizo correctamente"

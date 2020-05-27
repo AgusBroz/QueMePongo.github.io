@@ -1,7 +1,6 @@
 class PrendasController < ApplicationController
 
     before_action :set_prenda,only:[:show, :destroy, :update, :edit]
-
     def index
         @prendas = Prenda.all
     end
@@ -11,7 +10,7 @@ class PrendasController < ApplicationController
     
     def destroy
         if @prenda.destroy
-            redirect_to prendas_path, notice => "La prenda se elimino"
+            redirect_to prendas_path, notice: t(:deleted)
         end
     end 
 
@@ -22,7 +21,7 @@ class PrendasController < ApplicationController
     def create
         @prenda=Prenda.new(prenda_params)
         if @prenda.save
-            redirect_to prendas_path,notice: "AGREGAR YML"
+            redirect_to prendas_path,notice: t(:created)
         else
             render new_prenda_path
         end
@@ -34,7 +33,7 @@ class PrendasController < ApplicationController
     def update
 
         if @prenda.update_attributes(prenda_params)
-            redirect_to prendas_path, notice: "AGREGAR YML"
+            redirect_to prendas_path, notice: t(:updated)
         else
             render edit_prenda_path
         end

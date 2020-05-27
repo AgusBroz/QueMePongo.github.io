@@ -25,13 +25,12 @@
     </div>
     </header>
     <main>
-       
       <%= yield %> 
       <% flash.each do |type, msg| %>
-          <div>
+          <div class="flash-msg">
             <%= msg %>
           </div>
-        <% end %>
+      <% end %>
     </main>
     <footer>
     <div class="container">
