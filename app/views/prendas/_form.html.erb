@@ -6,7 +6,6 @@
         <%= f.label :textura%><br />
         <%= f.select(:textura, options_for_select(Prenda.texturas.keys.to_a))%>
     </p>
-    
     <p>
         <%= f.label :color%><br />
         <%= f.color_field :color%>
