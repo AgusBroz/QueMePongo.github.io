@@ -1,0 +1,30 @@
+<div class="new-edit-form">
+
+<h1> <%= text %></h1>
+<%= form_for prenda do |f|%>
+    <p>
+        <%= f.label :textura%><br />
+        <%= f.select(:textura, options_for_select(Prenda.texturas.keys.to_a))%>
+    </p>
+    
+    <p>
+        <%= f.label :color%><br />
+        <%= f.color_field :color%>
+    </p>
+    <p >
+        <%= f.label :color_secundario%><br />
+        <%= f.color_field :color_secundario%>
+    </p>
+    <p>
+        <%= f.label :categoria%><br />
+        <%= f.select(:categoria, options_for_select(Prenda.categoria.keys.to_a))%>
+    </p>
+    <p>
+        <%= f.label :tipo%><br />
+        <%= f.select(:tipo, options_for_select(Prenda.tipos.keys.to_a))%>
+    </p>
+    <p>
+        <%= f.submit text %>
+    </p>
+<%end%>
+</div>
