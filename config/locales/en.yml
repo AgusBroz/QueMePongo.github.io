@@ -30,6 +30,6 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  created: "Successfully created"
   deleted: "Successfully deleted"
   updated: "Successfully updated"
-  created: "Successfully created"

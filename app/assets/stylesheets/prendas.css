@@ -5,7 +5,12 @@ body{
     font-size: 16px;
    
 }
-
+a{
+    text-decoration: none;
+}
+a:visited{
+    color: white;
+}
 /* HEADER */
 
 header{
@@ -99,8 +104,6 @@ main{
     background-color: rgb(80, 67, 80);
     color: white;
     box-shadow: 3px 3px black;
-   /* border-right: 3px solid black;
-    border-bottom: 3px solid black;*/
 }
 .prendas-btn a:hover{
     background-color: rgb(65, 73, 64);
@@ -164,8 +167,8 @@ footer{
 footer p{
     font-family: Arial, Helvetica, sans-serif;
 }
-footer a:visited{
-    color: white;
+footer a:visited{ 
+    color: white; 
 }
 .socialMedia{
     display: flex;
