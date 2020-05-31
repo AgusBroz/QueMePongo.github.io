@@ -15,12 +15,8 @@
         <%= f.color_field :color_secundario %>
     </p>
     <p>
-        <%= f.label :categoria%><br />
-        <%= f.select(:categoria, options_for_select(Prenda.categoria.keys.to_a, selected: prenda.categoria)) %>
-    </p>
-    <p>
         <%= f.label :tipo%><br />
-        <%= f.select(:tipo, options_for_select(Prenda.tipos.keys.to_a, selected: prenda.tipo))%>
+        <%= f.select(:prenda_tipo_id, options_for_select(Prenda.tipos.keys, selected: prenda.prenda_tipo_id))%>
     </p>
     <p>
         <%= f.submit text %>
