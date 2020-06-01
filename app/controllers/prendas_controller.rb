@@ -41,7 +41,7 @@ class PrendasController < ApplicationController
 
     private
     def prenda_params
-       params.require(:prenda).permit(:color, :color_secundario, :textura, :prenda_tipo_id)     
+       params.require(:prenda).permit(:color, :color_secundario, :textura, :prenda_tipo)     
     end
 
     def set_prenda

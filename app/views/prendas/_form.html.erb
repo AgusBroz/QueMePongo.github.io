@@ -16,7 +16,7 @@
     </p>
     <p>
         <%= f.label :tipo%><br />
-        <%= f.select(:prenda_tipo_id, options_for_select(Prenda.tipos.keys, selected: prenda.prenda_tipo_id))%>
+        <%= f.select(:prenda_tipo_id, options_for_select(PrendaTipo.tipos.keys, selected: prenda.prenda_tipo))%>
     </p>
     <p>
         <%= f.submit text %>

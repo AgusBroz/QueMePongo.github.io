@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :prendas
   resources :guardarropas
+  resources :atuendos
   root to: 'landing#index'
 
   # post 'prendas', to: 'prendas#create'
