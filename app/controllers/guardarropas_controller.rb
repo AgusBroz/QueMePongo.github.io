@@ -20,11 +20,16 @@ class GuardarropasController < ApplicationController
     end
 
     def show
-        
     end
 
     def edit
     end
+
+    def destroy
+        if @guardarropa.destroy
+            redirect_to guardarropas_path, notice: t(:deleted)
+        end
+    end 
 
     def update
 
