@@ -14,10 +14,23 @@
         <%= f.label :color_secundario%><br />
         <%= f.color_field :color_secundario %>
     </p>
+
     <p>
         <%= f.label :tipo%><br />
-        <%= f.select(:prenda_tipo_id, options_for_select(PrendaTipo.tipos.keys, selected: prenda.prenda_tipo))%>
+        <%= f.select(:prenda_tipo, options_for_select(PrendaTipo.pluck(:nombre), selected: prenda.prenda_tipo))%>
     </p>
+    <p>
+        <%= f.label :tipo%><br />
+        <%= f.collection_select(:prenda_tipo, PrendaTipo.all, :id, :nombre)%>
+    </p>
+
+    <p>
+        <%= f.label :guardarropa%><br />
+        <%= f.collection_select(:guardarropa, Guardarropa.all, :id, :nombre )%>
+    </p>
+
+    
+
     <p>
         <%= f.submit text %>
     </p>

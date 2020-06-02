@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_160433) do
+ActiveRecord::Schema.define(version: 2020_06_02_151217) do
 
   create_table "atuendos", force: :cascade do |t|
     t.integer "prenda_torso_id"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_160433) do
 
   create_table "prenda_tipos", force: :cascade do |t|
     t.integer "categoria"
-    t.string "nombre"
+    t.integer "nombre"
   end
 
   create_table "prendas", force: :cascade do |t|
