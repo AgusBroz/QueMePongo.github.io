@@ -1,0 +1,14 @@
+<div class="new-edit-form">
+
+<h1> <%= text %></h1>
+<%= form_for guardarropa do |f|%>
+    <p>
+        <%= f.label :nombre%><br />
+        <%= f.text_field :nombre %>
+    </p>
+
+    <p>
+        <%= f.submit text %>
+    </p>
+<%end%>
+</div>

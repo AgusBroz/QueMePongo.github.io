@@ -95,11 +95,14 @@ main{
 }
 .prendas-btn{
     display: flex;
-    justify-content: center;
-    margin: 1em;
+    flex-direction: column;
+    margin-top: 1em;
+    width: 100%;
 }
 .prendas-btn a{
     text-decoration: none;
+    text-align: center;
+    margin-bottom: 10px;
     padding: 15px;
     background-color: rgb(80, 67, 80);
     color: white;
@@ -109,7 +112,6 @@ main{
     background-color: rgb(65, 73, 64);
     transition: all 0.2s linear;
     box-shadow: none;
-    border: none;
 }
 .flash-msg{
     color:white

@@ -1,0 +1,30 @@
+<div class="new-edit-form">
+
+<h1> <%= text %></h1>
+<%= form_for atuendo do |f|%>
+    <p>
+        <%= f.label :nombre%><br />
+        <%= f.text_field :prenda_cabeza %>
+    </p>
+
+    <p>
+        <%= f.label :nombre%><br />
+        <%= f.text_field :prenda_torso %>
+    </p>
+
+     <p>
+        <%= f.label :nombre%><br />
+        <%= f.text_field :prenda_piernas %>
+    </p>
+
+     <p>
+        <%= f.label :nombre%><br />
+        <%= f.text_field :prenda_pies %>
+    </p>
+
+
+    <p>
+        <%= f.submit text %>
+    </p>
+<%end%>
+</div>
