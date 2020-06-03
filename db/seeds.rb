@@ -5,10 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Guardarropa.create(nombre:"Guardarropa 1")
-PrendaTipo.create(nombre: "Remera",categoria:2)
-PrendaTipo.create(nombre: "Pantalon",categoria:1)
-Prenda.create(guardarropa_id: 1, prenda_tipo_id:1, textura:1,color:"#000",color_secundario:"#fff")
-Prenda.create(guardarropa_id: 1, prenda_tipo_id:1, textura:1,color:"#000",color_secundario:"#fff")
 
-*+
+PrendaTipo.create(categoria: 0,  nombre: 1)
+PrendaTipo.create(categoria: 2, nombre: 5)
+PrendaTipo.create(categoria: 1, nombre: 2)
+PrendaTipo.create(categoria: 3, nombre: 6)
+
+Guardarropa.create(nombre: "Guardarropa1")
+Guardarropa.create(nombre: "Guardarropa2")
+
+
+Prenda.create(textura:0, color: '#CC0066', color_secundario: '#CC0066', prenda_tipo_id: 4, guardarropa_id: 1)
+Prenda.create(textura:1, color: '#CC0066', color_secundario: '#CC0066', prenda_tipo_id: 1, guardarropa_id: 2)
+Prenda.create(textura:2, color: '#CC0066', color_secundario: '#CC0066', prenda_tipo_id: 2, guardarropa_id: 1)
+Prenda.create(textura:3, color: '#CC0066', color_secundario: '#CC0066', prenda_tipo_id: 3, guardarropa_id: 2)
+Prenda.create(textura:4, color: '#CC0066', color_secundario: '#CC0066', prenda_tipo_id: 2, guardarropa_id: 1)

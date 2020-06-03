@@ -17,20 +17,13 @@
 
     <p>
         <%= f.label :tipo%><br />
-        <%= f.select(:prenda_tipo, options_for_select(PrendaTipo.pluck(:nombre), selected: prenda.prenda_tipo))%>
-    </p>
-    <p>
-        <%= f.label :tipo%><br />
-        <%= f.collection_select(:prenda_tipo, PrendaTipo.all, :id, :nombre)%>
+        <%= f.collection_select :prenda_tipo_id, PrendaTipo.all, :id, :nombre, selected: prenda.prenda_tipo_id%>
     </p>
 
     <p>
         <%= f.label :guardarropa%><br />
-        <%= f.collection_select(:guardarropa, Guardarropa.all, :id, :nombre )%>
+        <%= f.collection_select(:guardarropa_id, Guardarropa.all, :id, :nombre, selected: prenda.guardarropa_id )%>
     </p>
-
-    
-
     <p>
         <%= f.submit text %>
     </p>
