@@ -2,15 +2,23 @@
 
 <h1> <%= text %></h1>
 <%= form_for prenda do |f|%>
+
+    <p>
+        <%= f.label :nombre%><br />
+        <%= f.text_field :nombre %>
+    </p>
+
     <p>
         <%= f.label :textura%><br />
         <%= f.select(:textura, options_for_select(Prenda.texturas.keys.to_a, selected: prenda.textura)) %>
     </p>
+
     <p>
         <%= f.label :color%><br />
         <%= f.color_field :color%>
     </p>
-    <p >
+
+    <p>
         <%= f.label :color_secundario%><br />
         <%= f.color_field :color_secundario %>
     </p>
@@ -22,10 +30,24 @@
 
     <p>
         <%= f.label :guardarropa%><br />
-        <%= f.collection_select(:guardarropa_id, Guardarropa.all, :id, :nombre, selected: prenda.guardarropa_id )%>
+        <%
+=begin%>
+ <%if(guardarropa_id)%>
+            <%= f.collection_select(:guardarropa_id, Guardarropa.all, :id, :nombre, selected: Guardarropa.find(params[:guardarropa_id]).id)%> 
+        <%else%> 
+<%
+=end%>
+            <%= f.collection_select(:guardarropa_id, Guardarropa.all, :id, :nombre)%> 
+        <%
+=begin%>
+ <%end%> 
+<%
+=end%>
     </p>
+    
     <p>
         <%= f.submit text %>
     </p>
 <%end%>
 </div>
+<p><%= link_to  "Volver", :back %></p>

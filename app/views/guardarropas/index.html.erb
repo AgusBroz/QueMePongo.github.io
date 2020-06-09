@@ -1,15 +1,10 @@
-<div>
-  <div class="prendas-view">
-    <table class="guardarropa">
-         <tr>  <%= render 'atributos_guardarropa', show: @guardarropas.present? %> </tr>
-        <% @guardarropas.each do |g| %>
-            <%= render 'guardarropa', guardarropa: g %>
-        <%end%>
-    </table>
-  </div>
-  <div class= "prendas-btn">
+<div class="container guardarropas-view">
+  <% @guardarropas.each do |g| %>
+      <%= render 'guardarropa', guardarropa: g %>
+  <%end%>
+<div class="interact-btn">
       <%= link_to "Crear Guardarropa", new_guardarropa_path%>
       <%= link_to "Crear Prenda", new_prenda_path%>
+</div>
       
-  </div>
 </div>

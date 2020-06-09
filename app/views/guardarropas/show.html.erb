@@ -7,7 +7,10 @@
         <%end%>
     </table>
   </div>
-  <div class= "prendas-btn">
-      <%= link_to "Agregar Prenda", new_prenda_path%>
+  <div class= "interact-btn">
+      <%= link_to "Agregar Prenda", new_prenda_path(:guardarropa_id => @guardarropa.id)%>
+      <%= link_to "Crear Atuendo",  new_guardarropa_atuendo_path(:guardarropa_id => @guardarropa.id) %>
+      <%= link_to "Ver Atuendos", guardarropa_atuendos_path(:guardarropa_id => @guardarropa.id) %>
+
   </div>
-</div>
+</div> 

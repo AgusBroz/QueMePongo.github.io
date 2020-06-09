@@ -1,0 +1,33 @@
+
+.container.guardarropas-view{
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.interact-btn a:hover{
+    text-decoration: underline;
+}
+.card{
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    width:30%;
+    margin: 6px;
+}
+.card p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.125rem;
+    margin-right: 1.25rem;
+}
+.card:hover{
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+}
+.action-btn i{
+    padding-left: 15px;
+}
+.action-btn i:hover{
+    color:rgb(82, 69, 69);
+}
