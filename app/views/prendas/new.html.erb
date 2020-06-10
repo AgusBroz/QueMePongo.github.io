@@ -1,2 +1,7 @@
+<%if @guardarropa%>
 <%= render 'form', guardarropa: @guardarropa, prenda: @prenda, text:"Crear" %>
+<%else%>
+<%= render 'form', guardarropa: nil, prenda: @prenda, text:"Crear" %>
+<%end%>
+
 

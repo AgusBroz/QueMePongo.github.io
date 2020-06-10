@@ -22,7 +22,7 @@ class GuardarropasController < ApplicationController
     def show
         @prendas= Prenda.all.select{|p| p.guardarropa_id == params[:id].to_i}
     end
-
+    
     def edit
     end
 

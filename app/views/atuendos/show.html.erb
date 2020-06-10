@@ -4,10 +4,11 @@
 
         <tr>  <%= render 'atributos_atuendo', show: true%> </tr>
         <tr>
-            <%= render 'atuendo', atuendo: @atuendo %>
+            <%= render 'atuendo', atuendo: @atuendo, show_show: false %>
         </tr>
       </table>
     </div>
-    <div class="prendas-btn">
+    <div class="interact-btn">
+        <%= link_to  "Volver", guardarropa_atuendos_path(@atuendo.guardarropa) %>
     </div>
 </div>

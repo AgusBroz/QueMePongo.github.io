@@ -3,7 +3,7 @@
     <table class="guardarropa">
          <tr>  <%= render 'atributos_prenda', show: @prendas.present? %> </tr>
         <% @prendas.each do |p| %>
-            <%= render 'prenda', prenda: p %>
+            <%= render 'prenda', prenda: p, guardarropa: @guardarropa, show_show: true %>
         <%end%>
     </table>
 

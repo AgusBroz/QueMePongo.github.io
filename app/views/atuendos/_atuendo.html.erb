@@ -35,8 +35,10 @@
         <i class="far fa-edit fa-2x"></i> 
     <% end %>
 
+    <% if (show_show) %>
     <%= link_to guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => atuendo.id)do%>
         <i class="far fa-eye fa-2x"></i>
+    <% end %>
     <% end %>
 
    <%= link_to guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => atuendo.id), method: :delete, data: { confirm: '¿Estas Seguro?' } do%>

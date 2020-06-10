@@ -33,11 +33,11 @@ class PrendasController < ApplicationController
         @prenda.prenda_tipo=PrendaTipo.find(prenda_params[:prenda_tipo_id])
         if(prenda_params[:guardarropa_id])
         @prenda.guardarropa=Guardarropa.find(prenda_params[:guardarropa_id]) 
-        if @prenda.save
-            redirect_to guardarropa_path(prenda_params[:guardarropa_id]) ,notice: t(:created)
-        else
-            render new_prenda_path
-        end
+            if @prenda.save
+                redirect_to guardarropa_path(prenda_params[:guardarropa_id]) ,notice: t(:created)
+            else
+                render new_prenda_path
+            end
         end
     end
 

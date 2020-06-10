@@ -12,15 +12,18 @@
         <i class="far fa-edit fa-2x"></i> 
     <% end %>
 
-    <%= link_to prenda do%>
-        <i class="far fa-eye fa-2x"></i>
+    <% if (show_show) %>
+        <%= link_to prenda do%>
+            <i class="far fa-eye fa-2x"></i>
+        <% end %>
     <% end %>
 
     <%= link_to prenda, method: :delete, data: { confirm: '¿Estas Seguro?' } do%>
         <i class="far fa-trash-alt fa-2x"></i>
-    </div>
     <% end %>
-    </td> 
     
+    </div>
+    </td>     
 </tr>
 </div>
+    

@@ -30,19 +30,11 @@
 
     <p>
         <%= f.label :guardarropa%><br />
-        <%
-=begin%>
- <%if(guardarropa_id)%>
-            <%= f.collection_select(:guardarropa_id, Guardarropa.all, :id, :nombre, selected: Guardarropa.find(params[:guardarropa_id]).id)%> 
+        <%if(@guardarropa)%>
+            <%= f.collection_select(:guardarropa_id, Guardarropa.all, :id, :nombre, selected: @guardarropa.id)%> 
         <%else%> 
-<%
-=end%>
             <%= f.collection_select(:guardarropa_id, Guardarropa.all, :id, :nombre)%> 
-        <%
-=begin%>
- <%end%> 
-<%
-=end%>
+        <%end%>       
     </p>
     
     <p>
