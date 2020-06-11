@@ -19,7 +19,7 @@
       <nav class="navigation">
         <ul>
           <li><p><%= link_to "Inicio", '/' %></p></li>
-          <li><p><%= link_to "Prendas", prendas_path%></p></li>
+          <li><p><%= link_to "Prendas sueltas", prendas_path%></p></li>
           <li><a href="#">Contacto</a></li>
           <li><p><%= link_to "Guardarropas", guardarropas_path%></p></li>
         </ul>
@@ -28,11 +28,15 @@
     </header>
     <main>
       <%= yield %> 
-      <% flash.each do |type, msg| %>
-          <div class="flash-msg">
-            <%= msg %>
-          </div>
-      <% end %>
+      <%
+=begin%>
+ <% flash.each do |type, msg| %>
+        <div class="flash-msg">
+          <%= msg %>
+        </div>
+      <% end %> 
+<%
+=end%>
     </main>
     <footer>
     <div class="container">

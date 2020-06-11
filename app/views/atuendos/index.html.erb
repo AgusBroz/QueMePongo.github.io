@@ -1,14 +1,17 @@
 <div>
   <div class="prendas-view">
     <table class="guardarropa">
-         <tr>  <%= render 'atributos_atuendo', show: @atuendos.present? %> </tr>
-        <% @atuendos.each do |g| %>
-            <%= render 'atuendo', atuendo: g %>
+      <tr>  <%= render 'atributos_atuendo', show: @atuendos.present? %> 
+        <% @atuendos.each do |a| %>
+            <%= render 'atuendo', atuendo: a, show_show: true %>
         <%end%>
+         
+  </tr>
     </table>
   </div>
-  <div class= "prendas-btn">
-      <%= link_to "Crear Atuendo", new_atuendo_path%>
-      
+    <div class="interact-btn">
+        <%= link_to "Crear Atuendo", new_guardarropa_atuendo_path(params[:guardarropa_id])%>
+        <%= link_to  "Volver", guardarropa_path(params[:guardarropa_id]) %>
+    </div>
   </div>
 </div>

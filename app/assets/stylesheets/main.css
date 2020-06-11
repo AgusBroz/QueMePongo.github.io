@@ -1,0 +1,51 @@
+main{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(44, 43, 43);
+}
+
+.flash-msg{
+    color:white
+}
+
+/* FORM */
+
+.color-col{
+    text-transform: uppercase;
+}
+
+.new-edit-form{
+    text-align: center;
+    padding: 1em;
+    width: 20%;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    border: 5px solid rgb(199, 195, 195);
+    font-family: Arial, Helvetica, sans-serif;
+}
+input{
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    text-align: center;
+}
+select{
+    width: 30%;
+}
+input[type="color"]{
+    width: 20%;
+}
+input[type="submit"]{
+    width: 30%;
+    border-radius: 0;
+    font-size: 1em;
+    padding: 15px;
+    background-color:rgb(65, 58, 65);
+    color: white;
+}
+input[type="submit"]:hover{
+    background-color: rgb(58, 53, 58);
+    transition: all 0.2s linear;
+    cursor: pointer;
+}

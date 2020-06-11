@@ -1,21 +1,50 @@
 <div>
 <tr>
-    <td><%= atuendo.prenda_cabeza %></td>
-    <td><%= atuendo.prenda_torso %></td>
-    <td><%= atuendo.prenda_piernas %></td>
-    <td><%= atuendo.prenda_pies %></td>
-        <td colspan="3">
-    <%= link_to edit_guardarropa_path(guardarropa) do %>
+    <td>
+            <%if(atuendo.prenda_cabeza.present?)%>
+             <%= atuendo.prenda_cabeza.nombre %>
+            <%else%>
+                No se selecciono prenda
+            <%end%>
+    </td>
+
+    <td>
+            <%if(atuendo.prenda_torso.present?)%>
+             <%= atuendo.prenda_torso.nombre %>
+            <%else%>
+                No se selecciono prenda
+            <%end%>
+    </td>
+    <td>
+            <%if(atuendo.prenda_piernas.present?)%>
+             <%= atuendo.prenda_piernas.nombre %>
+            <%else%>
+                No se selecciono prenda
+            <%end%>
+    </td>
+    <td>
+            <%if(atuendo.prenda_pies.present?)%>
+             <%= atuendo.prenda_pies.nombre %>
+            <%else%>
+                No se selecciono prenda
+            <%end%>
+    </td>
+    <td colspan="3">
+    <div class="action-btn">
+    <%= link_to edit_guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => atuendo.id) do %>
         <i class="far fa-edit fa-2x"></i> 
     <% end %>
 
-    <%= link_to guardarropa do%>
+    <% if (show_show) %>
+    <%= link_to guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => atuendo.id)do%>
         <i class="far fa-eye fa-2x"></i>
     <% end %>
-
-    <%= link_to guardarropa, method: :delete, data: { confirm: 'Estas Seguro?' } do%>
-        <i class="far fa-trash-alt fa-2x"></i>
     <% end %>
+
+   <%= link_to guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => atuendo.id), method: :delete, data: { confirm: '¿Estas Seguro?' } do%>
+        <i class="far fa-trash-alt fa-2x"></i>
+    <% end %> 
     </td> 
+    </div>
 </tr>
 </div>

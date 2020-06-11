@@ -1,6 +1,6 @@
 class GuardarropasController < ApplicationController
 
-    before_action :set_guardarropa,only:[ :destroy, :update, :edit]
+    before_action :set_guardarropa,only:[:show, :destroy, :update, :edit]
 
     def index
         @guardarropas = Guardarropa.all
@@ -22,11 +22,21 @@ class GuardarropasController < ApplicationController
     def show
         @prendas= Prenda.all.select{|p| p.guardarropa_id == params[:id].to_i}
     end
-
+    
     def edit
     end
 
     def destroy
+        @prendas=Prenda.where(guardarropa_id: @guardarropa.id)
+        @atuendos=@guardarropa.atuendos
+        @prendas.each do |p|
+            p.guardarropa_id= nil; 
+            p.save!
+        end 
+        @atuendos.each do |a|
+            a.destroy!
+        end
+        
         if @guardarropa.destroy
             redirect_to guardarropas_path, notice: t(:deleted)
         end

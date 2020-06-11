@@ -1,22 +1,25 @@
 <div>
     <tr>
-    <td><%= prenda.textura %></td>
-    <td class="color-col"><%= prenda.color %></td><br>
-    <td class="color-col"><%= prenda.color_secundario %></td>
-    <td><%= prenda.prenda_tipo.nombre %></td>
+        <td><%= prenda.nombre %></td><br>
+        <td><%= prenda.textura %></td>
+        <td class="color-col"><%= prenda.color %></td>
+        <td class="color-col"><%= prenda.color_secundario %></td>
+        <td><%= prenda.prenda_tipo.nombre %></td>
     
-    <td colspan="3">
-    <%= link_to edit_prenda_path(prenda) do %>
-        <i class="far fa-edit fa-2x"></i> 
-    <% end %>
+        <td colspan="3">
+            <div class="action-btn">
+                <%= link_to edit_prenda_path(prenda) do %>
+                    <i class="far fa-edit fa-2x"></i> 
+                <% end %>
 
-    <%= link_to prenda do%>
-        <i class="far fa-eye fa-2x"></i>
-    <% end %>
+                <%= link_to prenda do%>
+                    <i class="far fa-eye fa-2x"></i>
+                <% end %>
 
-    <%= link_to prenda, method: :delete, data: { confirm: 'Estas Seguro?' } do%>
-        <i class="far fa-trash-alt fa-2x"></i>
-    <% end %>
-    </td> 
-</tr>
+                <%= link_to prenda, method: :delete, data: { confirm: '¿Estas Seguro?' } do%>
+                    <i class="far fa-trash-alt fa-2x"></i>
+                <% end %>
+            </div>
+        </td> 
+    </tr>
 </div>

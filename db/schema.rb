@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_151217) do
+ActiveRecord::Schema.define(version: 2020_06_06_145016) do
 
   create_table "atuendos", force: :cascade do |t|
     t.integer "prenda_torso_id"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2020_06_02_151217) do
     t.string "lista_etiquetas"
     t.integer "puntaje"
     t.string "descripcion"
+    t.integer "guardarropa_id"
+    t.index ["guardarropa_id"], name: "index_atuendos_on_guardarropa_id"
     t.index ["prenda_cabeza_id"], name: "index_atuendos_on_prenda_cabeza_id"
     t.index ["prenda_piernas_id"], name: "index_atuendos_on_prenda_piernas_id"
     t.index ["prenda_pies_id"], name: "index_atuendos_on_prenda_pies_id"
@@ -41,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_151217) do
     t.integer "textura"
     t.integer "prenda_tipo_id"
     t.integer "guardarropa_id"
+    t.string "nombre"
     t.index ["guardarropa_id"], name: "index_prendas_on_guardarropa_id"
     t.index ["prenda_tipo_id"], name: "index_prendas_on_prenda_tipo_id"
   end

@@ -4,11 +4,11 @@
 
         <tr>  <%= render 'atributos_prenda', show: true%> </tr>
         <tr>
-            <%= render 'prenda', prenda: @prenda %>
+            <%= render 'prenda', prenda: @prenda, show_show: false  %>
         </tr>
       </table>
     </div>
-    <div class="prendas-btn">
-    <%= link_to "Volver", prendas_path%>
+    <div class="interact-btn">
+        <%= link_to  "Volver", guardarropa_path(@prenda.guardarropa) %>
     </div>
 </div>

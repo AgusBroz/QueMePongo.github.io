@@ -1,8 +1,9 @@
 class PrendasController < ApplicationController
 
     before_action :set_prenda,only:[:show, :destroy, :update, :edit]
+    
     def index
-        redirect_to guardarropas_path
+        @prendas = Prenda.where(guardarropa_id: nil)
     end
 
     def show
@@ -10,23 +11,33 @@ class PrendasController < ApplicationController
     
     def destroy
         pId=@prenda.guardarropa_id
+
         if @prenda.destroy
-            redirect_to guardarropa_path(pId) ,notice: t(:deleted)
+            if pId!=nil
+                redirect_to guardarropa_path(pId) ,notice: t(:deleted) 
+            else
+                redirect_to prendas_path                
+            end
         end
     end 
 
     def new
+        if(params[:guardarropa_id]!=nil)
+            @guardarropa=Guardarropa.find(params[:guardarropa_id])
+        end
         @prenda=Prenda.new
     end
 
     def create
         @prenda=Prenda.new(prenda_params)
         @prenda.prenda_tipo=PrendaTipo.find(prenda_params[:prenda_tipo_id])
-        @prenda.guardarropa=Guardarropa.find(prenda_params[:guardarropa_id])
-        if @prenda.save
-            redirect_to guardarropa_path(prenda_params[:guardarropa_id]) ,notice: t(:created)
-        else
-            render new_prenda_path
+        if(prenda_params[:guardarropa_id])
+        @prenda.guardarropa=Guardarropa.find(prenda_params[:guardarropa_id]) 
+            if @prenda.save
+                redirect_to guardarropa_path(prenda_params[:guardarropa_id]) ,notice: t(:created)
+            else
+                render new_prenda_path
+            end
         end
     end
 
@@ -34,9 +45,8 @@ class PrendasController < ApplicationController
     end
 
     def update
-
         if @prenda.update_attributes(prenda_params)
-            redirect_to prendas_path, notice: t(:updated)
+            redirect_to guardarropa_path(prenda_params[:guardarropa_id]), notice: t(:updated)
         else
             render edit_prenda_path
         end
@@ -44,7 +54,7 @@ class PrendasController < ApplicationController
 
     private
     def prenda_params
-       params.require(:prenda).permit(:color, :color_secundario, :textura,:prenda_tipo_id, :guardarropa_id  )     
+       params.require(:prenda).permit(:nombre, :color, :color_secundario, :textura, :prenda_tipo_id, :guardarropa_id)     
     end
 
     def set_prenda

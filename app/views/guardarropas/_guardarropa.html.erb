@@ -1,7 +1,6 @@
-<div>
-<tr>
-    <td><%= guardarropa.nombre %></td>
-        <td colspan="3">
+<div class="card">
+    <p><%= guardarropa.nombre %></p>
+    <div class="action-btn">
     <%= link_to edit_guardarropa_path(guardarropa) do %>
         <i class="far fa-edit fa-2x"></i> 
     <% end %>
@@ -13,6 +12,5 @@
     <%= link_to guardarropa, method: :delete, data: { confirm: 'Estas Seguro?' } do%>
         <i class="far fa-trash-alt fa-2x"></i>
     <% end %>
-    </td> 
-</tr>
+    </div>
 </div>
