@@ -2,26 +2,12 @@
 
 <h1> <%= text %></h1>
 <%= form_for [guardarropa, atuendo] do |f|%>
+<% PrendaTipo.categoria.keys.each do |categoria| %>
     <p>
-        <%= f.label :Cabeza%><br />
-        <%= f.collection_select(:prenda_cabeza_id, Prenda.joins(:prenda_tipo).where(prenda_tipos: {categoria: :cabeza}), :id, :nombre, selected: atuendo.prenda_cabeza_id )%>
+        <%= f.label categoria%><br />
+        <%= f.collection_select("prenda_#{categoria}_id", Prenda.joins(:prenda_tipo).where(prenda_tipos: {categoria: categoria}, guardarropa: guardarropa), :id, :nombre, selected: atuendo.send("prenda_#{categoria}_id"))%>
     </p>
-
-     <p>
-        <%= f.label :Torso%><br />
-        <%= f.collection_select(:prenda_torso_id, Prenda.joins(:prenda_tipo).where(prenda_tipos: {categoria: :torso}), :id, :nombre, selected: atuendo.prenda_torso_id )%>
-    </p>
-
-    <p>
-        <%= f.label :Piernas%><br />
-        <%= f.collection_select(:prenda_piernas_id, Prenda.joins(:prenda_tipo).where(prenda_tipos: {categoria: :piernas}), :id, :nombre, selected: atuendo.prenda_piernas_id )%>
-    </p>
-
-    <p>
-        <%= f.label :Pies%><br />
-        <%= f.collection_select(:prenda_pies_id, Prenda.joins(:prenda_tipo).where(prenda_tipos: {categoria: :pies}), :id, :nombre, selected: atuendo.prenda_pies_id )%>
-    </p>
-    
+<% end %>
      <p>
         <%= f.submit text %>
     </p>
