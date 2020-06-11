@@ -34,7 +34,6 @@ PrendaTipo.create(categoria: 3, nombre: 22)
 Guardarropa.create(nombre: "Guardarropa1")
 Guardarropa.create(nombre: "Guardarropa2")
 
-
 Prenda.create(nombre: "Gorra Nike",             textura:3, color: '#CC0066', color_secundario: '#CC0066', prenda_tipo_id: 1,  guardarropa_id: 1)
 Prenda.create(nombre: "Sombrero Hawaiano",      textura:3, color: '#CC0066', color_secundario: '#CC0066', prenda_tipo_id: 2,  guardarropa_id: 2)
 Prenda.create(nombre: "Chomba Fachera",         textura:3, color: '#CC0066', color_secundario: '#CC0066', prenda_tipo_id: 3,  guardarropa_id: 1)
