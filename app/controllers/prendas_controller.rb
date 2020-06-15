@@ -23,7 +23,7 @@ class PrendasController < ApplicationController
 
     def new
         if(params[:guardarropa_id]!=nil)
-            @guardarropa=Guardarropa.find(params[:guardarropa_id])
+            @guardarropa=Guardarropa.find(params[:guardarropa_id]) #        ¡poner validacion aquí!
         end
         @prenda=Prenda.new
     end

@@ -5,4 +5,5 @@ class Atuendo < ApplicationRecord
     belongs_to :prenda_pies, class_name: "Prenda" , required:false
     #has_many   :prendas
     belongs_to :guardarropa, required:true
+    validates :prenda_cabeza, :prenda_torso, :prenda_piernas, :prenda_pies, presence: :true
 end

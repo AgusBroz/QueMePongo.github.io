@@ -3,7 +3,7 @@
 
 header{
     background-color: rgb(29, 27, 27);
-    height: 10vh;
+    min-height: 10vh;
 }
 .container{
     width: 85%;
@@ -11,6 +11,14 @@ header{
     justify-content: space-between;
     align-items: center;
     margin: auto;
+}
+.nav-icon{
+    display: none;
+}
+.nav-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .nav-container h1{
     color: white;
@@ -20,6 +28,7 @@ header{
 }
 .navigation ul{
     list-style: none;
+    padding: 0;
 }
 .navigation ul li{
     display: inline-block;
@@ -37,7 +46,24 @@ header{
     background-color: rgb(53, 46, 46);
 }
 
-/* MAIN */
+@media screen and (max-width: 895px){
+    .navigation{
+        display: none;
+    }
+    .nav-icon{
+        display: block;
+        cursor: pointer;
+        padding: 10px 15px;
+        color: #ffffff;
+    }
+    .nav-icon:hover{
+        transition: 0.2s linear;
+        background-color: rgb(98, 125, 126);
+    }
+    .nav-container h1{
+        font-size: 1.5rem;
+    }
+}
 
 
 

@@ -1,11 +1,6 @@
 
 .container.guardarropas-view{
-    align-items: center;
-    flex-wrap: wrap;
     flex-direction: column;
-}
-.interact-btn a:hover{
-    text-decoration: underline;
 }
 .card{
     display: flex;
@@ -14,20 +9,22 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
-    width:30%;
+    width: auto;
     margin: 6px;
+    flex-wrap: wrap;
 }
 .card p{
     font-family: 'Open Sans', sans-serif;
     font-size: 1.125rem;
-    margin-right: 1.25rem;
+    margin: 15px;
 }
 .card:hover{
     box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
 }
-.action-btn i{
-    padding-left: 15px;
-}
-.action-btn i:hover{
-    color:rgb(82, 69, 69);
+@media screen and (max-width: 890px){
+    .card{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
