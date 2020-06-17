@@ -31,6 +31,13 @@ a:link{
 
 .action-btn{
     color: rgb(0, 0, 0);
+    display: flex;
+}
+.action-btn i{
+    padding: 8px;
+}
+.action-btn i:hover{
+    color:rgb(82, 69, 69);
 }
 .action-btn a{
     color: rgb(0, 0, 0);

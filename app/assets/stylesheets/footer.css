@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 footer{
     min-width: 100%;
-    height: 10vh;
+    min-height: 10vh;
     background-color: rgb(29, 27, 27);
     display: flex;
     color: white;
@@ -18,6 +18,9 @@ footer a:visited{
 }
 .socialMedia i{
     padding: 10px;
+}
+.socialMedia a:link{
+    color: #FFF;
 }
 .footer-text a{
     text-decoration: none;
