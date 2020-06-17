@@ -8,7 +8,7 @@ class AtuendosController < ApplicationController
 
     def show
         @atuendo= Atuendo.find(params[:id].to_i)
-    end
+    end    
     
     def destroy
         aId=Atuendo.find(params[:id].to_i).id
@@ -17,6 +17,16 @@ class AtuendosController < ApplicationController
             redirect_to guardarropa_atuendos_path(:guardarropa_id => @guardarropa.id), notice: t(:deleted)
         end
     end 
+
+    def show_random
+
+        @atuendo=Atuendo.new
+        @prenda_cabeza=  Guardarropa.find(params[:guardarropa_id]).prendas.joins(:prenda_tipo).where(prenda_tipos: {categoria: :cabeza}).order('RANDOM()').first
+        @prenda_torso=   Guardarropa.find(params[:guardarropa_id]).prendas.joins(:prenda_tipo).where(prenda_tipos: {categoria: :torso}).order('RANDOM()').first
+        @prenda_piernas= Guardarropa.find(params[:guardarropa_id]).prendas.joins(:prenda_tipo).where(prenda_tipos: {categoria: :piernas}).order('RANDOM()').first
+        @prenda_pies=    Guardarropa.find(params[:guardarropa_id]).prendas.joins(:prenda_tipo).where(prenda_tipos: {categoria: :pies}).order('RANDOM()').first
+        
+    end
 
     def new
         @atuendo=Atuendo.new
@@ -48,7 +58,7 @@ class AtuendosController < ApplicationController
 
     private
     def atuendo_params
-       params.require(:atuendo).permit(:prenda_cabeza_id, :prenda_torso_id, :prenda_piernas_id, :prenda_pies_id, :puntaje, :lista_etiquetas)     
+       params.require(:atuendo).permit(:prenda_cabeza_id, :prenda_torso_id, :prenda_piernas_id, :prenda_pies_id, :puntaje, :estilo, :estacion)     
     end
 
     def set_atuendo

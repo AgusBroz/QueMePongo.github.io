@@ -4,9 +4,6 @@
     flex-wrap: wrap;
     flex-direction: column;
 }
-.interact-btn a:hover{
-    text-decoration: underline;
-}
 .card{
     display: flex;
     background-color: rgb(255, 255, 255);
