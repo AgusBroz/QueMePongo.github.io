@@ -25,6 +25,9 @@ a{
 a:visited{
     color: white;
 }
+a:link{
+    color: #ffffff;
+}
 
 .action-btn{
     color: rgb(0, 0, 0);
@@ -42,6 +45,21 @@ a:visited{
 .action-btn a:visited{
     color: rgb(0, 0, 0);
 }
-.interact-btn a:hover{
-    text-decoration: underline;
+.interact-btn{
+    margin-top: 1.5rem;
 }
+.interact-btn a,
+.interact-btn a:disabled{
+    text-decoration: none;
+    padding:15px;
+    background-color: rgb(94, 88, 88);
+    border-radius: 3px;
+    text-align: center;
+    transition: ease-in-out all 0.3s;
+    
+  }
+  
+.interact-btn a:hover{
+    background-color: rgb(46, 42, 42);
+}
+

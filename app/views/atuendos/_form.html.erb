@@ -1,13 +1,38 @@
 <div class="new-edit-form">
 
 <h1> <%= text %></h1>
-<%= form_for [guardarropa, atuendo] do |f|%>
-<% PrendaTipo.categoria.keys.each do |categoria| %>
-    <p>
-        <%= f.label categoria%><br />
-        <%= f.collection_select("prenda_#{categoria}_id", Prenda.joins(:prenda_tipo).where(prenda_tipos: {categoria: categoria}, guardarropa: guardarropa), :id, :nombre, selected: atuendo.send("prenda_#{categoria}_id"))%>
-    </p>
-<% end %>
+    <%= form_for [guardarropa, atuendo] do |f|%>
+    <% PrendaTipo.categoria.keys.each do |categoria| %>
+        <p>
+            <%= f.label categoria%><br />
+            <%= f.collection_select("prenda_#{categoria}_id", Prenda.joins(:prenda_tipo).where(prenda_tipos: {categoria: categoria}, guardarropa: guardarropa), :id, :nombre, selected: atuendo.send("prenda_#{categoria}_id"))%>
+        </p>
+    <% end %>
+
+    <p>Estilo</p>
+    <div class="radio">
+    <% Atuendo.estilos.keys.each do |e| %>
+        <%= f.radio_button :estilo, e %>
+        <%= f.label :estilo, e%>
+    <% end %>
+    </div>
+
+    
+    <p>Estacion</p>
+    <div class="radio">
+    <% Atuendo.estacions.keys.each do |e| %>
+        <%= f.radio_button :estacion, e%>
+        <%= f.label :estacion, e%>
+    <% end %>
+    </div>
+
+    <p>Calificacion</p>
+    <div class="radio">
+    <% Atuendo.puntajes.keys.each do |e| %>
+        <%= f.radio_button :puntaje, e%>
+        <%= f.label :puntaje, e%>
+    <% end %>
+    </div>
      <p>
         <%= f.submit text %>
     </p>

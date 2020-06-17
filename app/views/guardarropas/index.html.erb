@@ -1,10 +1,10 @@
 <div class="container guardarropas-view">
   <% @guardarropas.each do |g| %>
-      <%= render 'guardarropa', guardarropa: g %>
+    <%= render 'guardarropa', guardarropa: g %>
   <%end%>
 <div class="interact-btn">
-      <%= link_to "Crear Guardarropa", new_guardarropa_path%>
-      <%= link_to "Crear Prenda", new_prenda_path%>
+  <%= link_to "Crear Guardarropa", new_guardarropa_path%>
+  <%= link_to_if @guardarropas.present?, "Crear Prenda", new_prenda_path%> 
 </div>
       
 </div>

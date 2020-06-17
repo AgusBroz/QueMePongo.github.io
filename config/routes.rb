@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :prendas
     resources :guardarropas do
       resources :atuendos
+      get 'atuendo-aleatorio', to: 'atuendos#show_random'
     end
+
 
  
 

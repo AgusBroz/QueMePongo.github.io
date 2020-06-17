@@ -9,7 +9,8 @@
   </div>
   <div class= "interact-btn">
       <%= link_to "Agregar Prenda", new_prenda_path(:guardarropa_id => @guardarropa.id)%>
-      <%= link_to "Crear Atuendo",  new_guardarropa_atuendo_path(:guardarropa_id => @guardarropa.id) %>
+      <%= link_to_if @prendas.present?, "Crear Atuendo",  new_guardarropa_atuendo_path(:guardarropa_id => @guardarropa.id), class: "interact-btn" %>
+      <%= link_to_if @prendas.present?, "Crear Atuendo Aleatorio",  "/guardarropas/#{@guardarropa.id}/atuendo-aleatorio", class: "interact-btn" %>
       <%= link_to "Ver Atuendos", guardarropa_atuendos_path(:guardarropa_id => @guardarropa.id) %>
       <%= link_to "Volver", guardarropas_path %>
   </div>

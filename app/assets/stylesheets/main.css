@@ -49,4 +49,13 @@ input[type="submit"]:hover{
     background-color: rgb(58, 53, 58);
     transition: all 0.2s linear;
     cursor: pointer;
+} 
+.radio{
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.radio label{
+    text-transform: capitalize;
 }

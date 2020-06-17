@@ -30,8 +30,8 @@ class PrendasController < ApplicationController
 
     def create
         @prenda=Prenda.new(prenda_params)
-        @prenda.prenda_tipo=PrendaTipo.find(prenda_params[:prenda_tipo_id])
-        if(prenda_params[:guardarropa_id])
+        @prenda.prenda_tipo=PrendaTipo.find(prenda_params[:prenda_tipo_id]) 
+        if(prenda_params[:guardarropa_id]) #poner verificacion en el #new y no aqui en el create ¿vió?
         @prenda.guardarropa=Guardarropa.find(prenda_params[:guardarropa_id]) 
             if @prenda.save
                 redirect_to guardarropa_path(prenda_params[:guardarropa_id]) ,notice: t(:created)
