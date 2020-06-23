@@ -29,6 +29,10 @@
                 No se selecciono prenda
             <%end%>
     </td>
+    <td>
+            <%= atuendo.read_attribute_before_type_cast(:puntaje)+1 %>
+            (<%= atuendo.puntaje %>)
+    </td>
     <td colspan="3">
     <div class="action-btn">
     <%= link_to edit_guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => atuendo.id) do %>

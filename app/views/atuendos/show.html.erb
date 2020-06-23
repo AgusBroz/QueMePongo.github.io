@@ -1,3 +1,4 @@
+<%if @atuendo%>
 <div>
     <div class="prendas-view">
       <table class="guardarropa">
@@ -12,3 +13,6 @@
         <%= link_to  "Volver", guardarropa_atuendos_path(@atuendo.guardarropa) %>
     </div>
 </div>
+<% else %>
+estas viendo un atuendo de otra persona
+<% end %>

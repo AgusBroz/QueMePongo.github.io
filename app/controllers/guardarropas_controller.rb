@@ -3,7 +3,7 @@ class GuardarropasController < ApplicationController
     before_action :set_guardarropa,only:[:show, :destroy, :update, :edit]
 
     def index
-        @guardarropas = Guardarropa.all
+        @guardarropas = Guardarropa.where(usuario_id: current_usuario.id)
     end
 
     def new
@@ -12,15 +12,19 @@ class GuardarropasController < ApplicationController
     
     def create
         @guardarropa=Guardarropa.new(guardarropas_params)
+        @guardarropa.usuario= current_usuario
         if @guardarropa.save
             redirect_to guardarropas_path,notice: t(:created)
         else
-            render new_guardarropas_path
+            redirect_to new_guardarropa_path
         end
     end
 
     def show
-        @prendas= Prenda.all.select{|p| p.guardarropa_id == params[:id].to_i}
+        #@prendas= Prenda.all.select{|p| p.guardarropa_id == params[:id].to_i}
+        if(@guardarropa)
+        @prendas=Prenda.where(guardarropa_id: @guardarropa.id)
+        end
     end
     
     def edit
@@ -43,11 +47,10 @@ class GuardarropasController < ApplicationController
     end 
 
     def update
-
         if @guardarropa.update_attributes(guardarropas_params)
             redirect_to guardarropas_path, notice: t(:updated)
         else
-            render edit_guardarropa_path
+            redirect_to edit_guardarropa_path
         end
     end
 
@@ -58,6 +61,6 @@ class GuardarropasController < ApplicationController
     end
 
     def set_guardarropa
-        @guardarropa= Guardarropa.find(params[:id].to_i)
+        @guardarropa= Guardarropa.find_by(id: params[:id].to_i, usuario_id: current_usuario.id)
     end
 end

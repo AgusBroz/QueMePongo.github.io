@@ -31,9 +31,9 @@
     <p>
         <%= f.label :guardarropa%><br />
         <%if(@guardarropa)%>
-            <%= f.collection_select(:guardarropa_id, Guardarropa.all, :id, :nombre, selected: @guardarropa.id)%> 
+            <%= f.collection_select(:guardarropa_id, Guardarropa.where(usuario_id: current_usuario), :id, :nombre, selected: @guardarropa.id)%> 
         <%else%> 
-            <%= f.collection_select(:guardarropa_id, Guardarropa.all, :id, :nombre)%> 
+            <%= f.collection_select(:guardarropa_id, Guardarropa.where(usuario_id: current_usuario), :id, :nombre)%> 
         <%end%>       
     </p>
     
@@ -43,5 +43,5 @@
 <%end%>
 </div>
 <div class="interact-btn">
-<%= link_to  "Volver", :back %>
+<%= link_to  "Volver", prendas_path%>
 </div>

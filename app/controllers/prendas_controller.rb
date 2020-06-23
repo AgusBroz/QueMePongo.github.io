@@ -3,7 +3,7 @@ class PrendasController < ApplicationController
     before_action :set_prenda,only:[:show, :destroy, :update, :edit]
     
     def index
-        @prendas = Prenda.where(guardarropa_id: nil)
+        @prendas = Prenda.where(guardarropa_id: nil, usuario_id: current_usuario)
     end
 
     def show
@@ -22,7 +22,7 @@ class PrendasController < ApplicationController
     end 
 
     def new
-        if(params[:guardarropa_id]!=nil)
+        if(params[:guardarropa_id])
             @guardarropa=Guardarropa.find(params[:guardarropa_id]) #        ¡poner validacion aquí!
         end
         @prenda=Prenda.new
@@ -31,6 +31,7 @@ class PrendasController < ApplicationController
     def create
         @prenda=Prenda.new(prenda_params)
         @prenda.prenda_tipo=PrendaTipo.find(prenda_params[:prenda_tipo_id]) 
+        @prenda.usuario= current_usuario
         if(prenda_params[:guardarropa_id]) #poner verificacion en el #new y no aqui en el create ¿vió?
         @prenda.guardarropa=Guardarropa.find(prenda_params[:guardarropa_id]) 
             if @prenda.save
@@ -45,10 +46,11 @@ class PrendasController < ApplicationController
     end
 
     def update
-        if @prenda.update_attributes(prenda_params)
+
+        if prenda_params[:guardarropa_id] && @prenda.update_attributes(prenda_params)
             redirect_to guardarropa_path(prenda_params[:guardarropa_id]), notice: t(:updated)
         else
-            render edit_prenda_path
+            redirect_to edit_prenda_path
         end
     end
 

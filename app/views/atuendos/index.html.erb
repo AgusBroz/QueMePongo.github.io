@@ -1,3 +1,4 @@
+<% if @guardarropa%>
 <div>
   <div class="prendas-view">
     <table class="guardarropa">
@@ -5,8 +6,9 @@
         <% @atuendos.each do |a| %>
             <%= render 'atuendo', atuendo: a, show_show: true %>
         <%end%>
-         
-  </tr>
+        <% if @atuendos.count>=2%>
+        <% end%>
+       </tr>
     </table>
   </div>
     <div class="interact-btn">
@@ -15,3 +17,6 @@
     </div>
   </div>
 </div>
+<% else %>
+estas viendo los atuendos de otra persona
+<% end %>

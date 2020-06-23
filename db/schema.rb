@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_14_142451) do
+ActiveRecord::Schema.define(version: 2020_06_22_151641) do
 
   create_table "atuendos", force: :cascade do |t|
     t.integer "prenda_torso_id"
@@ -22,15 +22,19 @@ ActiveRecord::Schema.define(version: 2020_06_14_142451) do
     t.integer "guardarropa_id"
     t.integer "estilo"
     t.integer "estacion"
+    t.integer "usuario_id"
     t.index ["guardarropa_id"], name: "index_atuendos_on_guardarropa_id"
     t.index ["prenda_cabeza_id"], name: "index_atuendos_on_prenda_cabeza_id"
     t.index ["prenda_piernas_id"], name: "index_atuendos_on_prenda_piernas_id"
     t.index ["prenda_pies_id"], name: "index_atuendos_on_prenda_pies_id"
     t.index ["prenda_torso_id"], name: "index_atuendos_on_prenda_torso_id"
+    t.index ["usuario_id"], name: "index_atuendos_on_usuario_id"
   end
 
   create_table "guardarropas", force: :cascade do |t|
     t.string "nombre"
+    t.integer "usuario_id"
+    t.index ["usuario_id"], name: "index_guardarropas_on_usuario_id"
   end
 
   create_table "prenda_tipos", force: :cascade do |t|
@@ -45,8 +49,28 @@ ActiveRecord::Schema.define(version: 2020_06_14_142451) do
     t.integer "prenda_tipo_id"
     t.integer "guardarropa_id"
     t.string "nombre"
+    t.integer "usuario_id"
     t.index ["guardarropa_id"], name: "index_prendas_on_guardarropa_id"
     t.index ["prenda_tipo_id"], name: "index_prendas_on_prenda_tipo_id"
+    t.index ["usuario_id"], name: "index_prendas_on_usuario_id"
+  end
+
+  create_table "rols", force: :cascade do |t|
+    t.integer "nombre"
+  end
+
+  create_table "usuarios", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "rol_id", default: 0
+    t.index ["email"], name: "index_usuarios_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
+    t.index ["rol_id"], name: "index_usuarios_on_rol_id"
   end
 
 end

@@ -1,13 +1,16 @@
 class AtuendosController < ApplicationController
 
     before_action :set_guardarropa
-
+    helper_method :ordenar_columna,:ordenar_direccion
+    
     def index
-        @atuendos=Atuendo.where(guardarropa_id: @guardarropa.id)
+        if(@guardarropa)
+            @atuendos=Atuendo.where(guardarropa_id: @guardarropa.id).order(ordenar_columna + " " + ordenar_direccion)
+        end
     end
 
     def show
-        @atuendo= Atuendo.find(params[:id].to_i)
+        @atuendo= Atuendo.find_by(id: params[:id].to_i, usuario_id: current_usuario.id)
     end    
     
     def destroy
@@ -33,14 +36,12 @@ class AtuendosController < ApplicationController
     end
 
     def create
-       # @atuendo=Atuendo.new(atuendo_params)
-       # @atuendo.guardarropa_id=params[:guardarropa_id]
-        redirect_to guardarropa_atuendos_path,notice: t(:created) if @guardarropa.atuendos << Atuendo.new(atuendo_params) 
-        #if @atuendo.save
-            
-        #else
-        #    redirect_to new_guardarropa_atuendo_path
-        #end
+        @atuendo=Atuendo.new(atuendo_params)
+        @atuendo.usuario=current_usuario
+
+        if (@guardarropa.atuendos << @atuendo)
+        redirect_to guardarropa_atuendos_path,notice: t(:created)  
+        end
     end
 
     def edit
@@ -66,7 +67,15 @@ class AtuendosController < ApplicationController
     end
 
     def set_guardarropa
-        @guardarropa= Guardarropa.find(params[:guardarropa_id])
+        @guardarropa= Guardarropa.find_by(id: params[:guardarropa_id].to_i, usuario_id: current_usuario.id)
+    end
+
+    def ordenar_columna
+        Atuendo.column_names.include?(params[:columna]) ? params[:columna] : "puntaje"
+    end
+
+    def ordenar_direccion
+        %w[asc desc].include?(params[:direccion]) ? params[:direccion] : "desc"
     end
 
 end

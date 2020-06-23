@@ -1,0 +1,14 @@
+<h1>Usuarios</h1>
+<div class="prendas">
+<table class="guardarropa">
+<%= render "atributos_usuario"%>
+<% @usuarios.each do |u| %>
+    <tr>
+    <td><%=u.email%></td>
+    <td><%= Prenda.where(usuario_id: u.id).count %> </td>
+    <td><%= Guardarropa.where(usuario_id: u.id).count %> </td>
+    <td><%=u.created_at%></td>
+    </tr>
+<% end %>
+</table>
+</div>
