@@ -1,13 +1,22 @@
 <% if @guardarropa%>
 <div>
+<div class="search-form">
+<h1>Filtrar</h1>
+<%= form_tag guardarropa_atuendos_path, method: :get do%>
+ <div class="search-select">
+ <%= select_tag :estilo, options_for_select(Atuendo.estilos.keys.to_a),  :include_blank => true %> <!--selected-->
+ <%= select_tag :estacion, options_for_select(Atuendo.estacions.keys.to_a), :include_blank => true, selected: params[:estacion] %>
+ 
+<%= submit_tag "Buscar", name: nil%>
+ </div>
+<% end %>
+</div>
   <div class="prendas-view">
     <table class="guardarropa">
       <tr>  <%= render 'atributos_atuendo', show: @atuendos.present? %> 
         <% @atuendos.each do |a| %>
             <%= render 'atuendo', atuendo: a, show_show: true %>
         <%end%>
-        <% if @atuendos.count>=2%>
-        <% end%>
        </tr>
     </table>
   </div>

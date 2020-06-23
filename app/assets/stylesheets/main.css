@@ -57,6 +57,19 @@ input[type="submit"]:hover{
 .radio label{
     text-transform: capitalize;
 }
+.search-form h1{
+    font-family: "Open Sans", sans-serif;
+}
+.search-form .search-select{
+    display: flex;
+}
+.search-form .search-select select{
+    text-transform: capitalize;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1em;
+    padding: 10px;
+    margin: 5px 5px 25px 0;
+} 
 @media screen and (max-width: 890px){
     .new-edit-form{
         width: 75vw;

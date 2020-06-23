@@ -30,6 +30,20 @@
             <%end%>
     </td>
     <td>
+            <%if(atuendo.estacion)%>
+             <%= atuendo.estacion %>
+            <%else%>
+                No se selecciono prenda
+            <%end%>
+    </td>
+    <td>
+            <%if(atuendo.estilo)%>
+             <%= atuendo.estilo %>
+            <%else%>
+                No se selecciono prenda
+            <%end%>
+    </td>
+    <td>
             <%= atuendo.read_attribute_before_type_cast(:puntaje)+1 %>
             (<%= atuendo.puntaje %>)
     </td>
