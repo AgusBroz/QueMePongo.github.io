@@ -6,4 +6,9 @@ class Usuario < ApplicationRecord
   belongs_to :rol, required:false
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  def esAdmin?
+    rol.nombre == "administrador"
+  end
+         
 end

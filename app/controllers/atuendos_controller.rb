@@ -8,7 +8,6 @@ class AtuendosController < ApplicationController
             @atuendos=Atuendo.where(guardarropa_id: @guardarropa.id).order(ordenar_columna + " " + ordenar_direccion)
             
             if(params[:estilo] || params[:estacion])
-                @atuendos=Atuendo.all
                 @atuendos=@atuendos.where(estilo: params[:estilo]) if(params[:estilo] != "")
                 @atuendos=@atuendos.where(estacion: params[:estacion]) if(params[:estacion] != "")
             end

@@ -28,16 +28,12 @@ a:visited{
 a:link{
     color: #ffffff;
 }
-
-.action-btn{
-    color: rgb(0, 0, 0);
-    display: flex;
-}
 .action-btn i{
     padding: 8px;
+    color: white;
 }
 .action-btn i:hover{
-    color:rgb(82, 69, 69);
+    color:rgb(167, 167, 167);
 }
 .action-btn a{
     color: rgb(0, 0, 0);
@@ -51,14 +47,15 @@ a:link{
 .interact-btn a,
 .interact-btn a:disabled{
     text-decoration: none;
+    font-family: "Open Sans";
     padding:15px;
-    background-color: rgb(94, 88, 88);
+    background-color: rgb(58, 58, 58);
     border-radius: 3px;
     text-align: center;
     transition: ease-in-out all 0.3s;
   }
   
 .interact-btn a:hover{
-    background-color: rgb(46, 42, 42);
+    background-color: rgb(78, 78, 78);
 }
 

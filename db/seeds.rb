@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 PrendaTipo.create(categoria: 0, nombre:  0)
 PrendaTipo.create(categoria: 0, nombre:  1)
 PrendaTipo.create(categoria: 1, nombre: 10)
