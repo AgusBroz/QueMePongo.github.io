@@ -11,6 +11,7 @@ class AtuendosController < ApplicationController
                 @atuendos=@atuendos.where(estilo: params[:estilo]) if(params[:estilo] != "")
                 @atuendos=@atuendos.where(estacion: params[:estacion]) if(params[:estacion] != "")
             end
+            
         end
         
     end

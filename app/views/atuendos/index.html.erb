@@ -4,10 +4,11 @@
 <h1>Filtrar</h1>
 <%= form_tag guardarropa_atuendos_path, method: :get do%>
  <div class="search-select">
- <%= select_tag :estilo, options_for_select(Atuendo.estilos.keys.to_a),  :include_blank => true %> <!--selected-->
- <%= select_tag :estacion, options_for_select(Atuendo.estacions.keys.to_a), :include_blank => true, selected: params[:estacion] %>
+ <%= select_tag :estilo, options_for_select(Atuendo.estilos.keys.to_a,selected: params[:estilo]),  :include_blank => true %> <!--selected-->
+ <%= select_tag :estacion, options_for_select(Atuendo.estacions.keys.to_a, selected: params[:estacion]), :include_blank => true %>
  
 <%= submit_tag "Buscar", name: nil%>
+
  </div>
 <% end %>
 </div>
