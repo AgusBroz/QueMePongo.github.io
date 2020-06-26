@@ -22,24 +22,28 @@
       <nav class="navigation">
         <ul>
           <li><p><%= link_to "Inicio", '/' %></p></li>
-          <li><p><%= link_to "Prendas sueltas", prendas_path%></p></li>
           <li><a href="#">Contacto</a></li>
           <li><p><%= link_to "Guardarropas", guardarropas_path%></p></li>
+        <% if signed_in? %>
+          <% if (Usuario.find(current_usuario.id).rol.nombre == "administrador") %>
+            <li><%= link_to  "Usuarios", usuarios_path %></li>
+          <% end %>
+          <li><%= link_to "Salir", destroy_usuario_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Registrarse", new_usuario_registration_path %></li>
+          <li><%= link_to "Ingresar", new_usuario_session_path %></li>
+        <% end %>
         </ul>
       </nav>
     </div>
     </header>
     <main>
       <%= yield %> 
-      <%
-=begin%>
  <% flash.each do |type, msg| %>
         <div class="flash-msg">
           <%= msg %>
         </div>
-      <% end %> 
-<%
-=end%>
+      <% end %>  
     </main>
     <footer>
     <div class="container">

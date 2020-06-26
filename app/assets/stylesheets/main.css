@@ -3,7 +3,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(44, 43, 43);
+    background: rgb(44, 44, 44);
 }
 
 .flash-msg{
@@ -19,6 +19,7 @@ main{
 .new-edit-form{
     text-align: center;
     padding: 20px;
+    width: 30vw;
     box-sizing: border-box;
     border-radius: 5px;
     color: rgb(255, 255, 255);
@@ -28,11 +29,11 @@ main{
 input{
     border: 2px solid rgb(0, 0, 0);
     border-radius: 5px;
-    text-align: center;
 }
 select, 
-input{
-    width: 100%;
+input[type=text]{
+    text-align-last: center;
+    width: 50%;
 }
 input[type="color"]{
     width: 60px;
@@ -51,11 +52,30 @@ input[type="submit"]:hover{
     cursor: pointer;
 } 
 .radio{
-    padding: 15px;
-    display: flex;
-    flex-wrap: wrap;
+    
     justify-content: center;
 }
 .radio label{
     text-transform: capitalize;
+}
+.search-form h1{
+    font-family: "Open Sans", sans-serif;
+    color: white;
+}
+.search-form .search-select{
+    display: flex;
+}
+.search-form .search-select select{
+    text-transform: capitalize;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1em;
+    padding: 10px;
+    margin: 5px 5px 25px 0;
+} 
+@media screen and (max-width: 890px){
+    .new-edit-form{
+        width: 75vw;
+        height: auto;
+        overflow-y: scroll;
+    }
 }

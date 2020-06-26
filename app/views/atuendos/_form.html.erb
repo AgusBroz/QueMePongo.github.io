@@ -1,3 +1,4 @@
+<div>
 <div class="new-edit-form">
 
 <h1> <%= text %></h1>
@@ -5,7 +6,7 @@
     <% PrendaTipo.categoria.keys.each do |categoria| %>
         <p>
             <%= f.label categoria%><br />
-            <%= f.collection_select("prenda_#{categoria}_id", Prenda.joins(:prenda_tipo).where(prenda_tipos: {categoria: categoria}, guardarropa: guardarropa), :id, :nombre, selected: atuendo.send("prenda_#{categoria}_id"))%>
+            <%= f.collection_select("prenda_#{categoria}_id", Prenda.joins(:prenda_tipo).where(prenda_tipos: {categoria: categoria}, guardarropa: guardarropa,usuario_id: current_usuario), :id, :nombre, selected: atuendo.send("prenda_#{categoria}_id"))%>
         </p>
     <% end %>
 
@@ -33,11 +34,13 @@
         <%= f.label :puntaje, e%>
     <% end %>
     </div>
-     <p>
+
+    <p>
         <%= f.submit text %>
     </p>
 <%end%>
 </div>
 <div class="interact-btn">
 <%= link_to  "Volver", :back %>
+</div>
 </div>
