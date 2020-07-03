@@ -4,8 +4,10 @@ class Usuario < ApplicationRecord
   has_many :guardarropas
   has_many :atuendos
 
-  belongs_to :rol
-  before_save :asignar_rol
+  
+  belongs_to :rol, required: false
+  before_create :asignar_rol
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
@@ -14,7 +16,7 @@ class Usuario < ApplicationRecord
   end
 
   def asignar_rol
-    rol||=Rol.first #find_by(key: value)
+    self.rol_id=Rol.find_by(nombre: 0).id
   end
    
   def validar_permisos

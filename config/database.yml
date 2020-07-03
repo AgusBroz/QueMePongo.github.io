@@ -5,18 +5,18 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresql #adapter: sqlite3
-  encoding: unicode #
+  adapter: postgresql 
+  encoding: unicode 
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  username: quemepongo
+  password: <%= ENV["APP_PASSWORD"] %>
 
 development:
   <<: *default
   database: que_me_pongo_development
   host: localhost
-  #username: quemepongo
-  #password: ENV["APP_PASSWORD"]
-
+  
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
@@ -27,5 +27,5 @@ test:
 production:
   <<: *default
   database: que_me_pongo_production
-  username: quemepongo
-  password: ENV["APP_PASSWORD"]
+  #username: quemepongo
+  #password: <%= ENV["APP_PASSWORD"] %>
