@@ -27,5 +27,3 @@ test:
 production:
   <<: *default
   database: que_me_pongo_production
-  #username: quemepongo
-  #password: <%= ENV["APP_PASSWORD"] %>
