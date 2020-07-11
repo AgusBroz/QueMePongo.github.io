@@ -21,7 +21,6 @@
       </div>
       <nav class="navigation">
         <ul>
-          <li><p><%= link_to "Inicio", '/' %></p></li>
           <li><a href="#">Contacto</a></li>
           <li><p><%= link_to "Guardarropas", guardarropas_path%></p></li>
         <% if signed_in? %>
@@ -38,12 +37,13 @@
     </div>
     </header>
     <main>
-      <%= yield %> 
- <% flash.each do |type, msg| %>
-        <div class="flash-msg">
-          <%= msg %>
-        </div>
-      <% end %>  
+    <%= yield :landing %>
+    <%= yield %> 
+    <!--<% flash.each do |type, msg| %>
+      <div class="flash-msg">
+        <%= msg %>
+      </div>
+    <% end %>  -->
     </main>
     <footer>
     <div class="container">

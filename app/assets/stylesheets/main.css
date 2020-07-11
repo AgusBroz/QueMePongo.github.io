@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 main{
     height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(44, 44, 44);
+    background: linear-gradient(45deg, rgba(76,76,76,0.87) 0%, rgba(44,44,44,0.92) 40%, rgba(44,44,44,1) 100%);
 }
 
 .flash-msg{
     color:white
 }
+
 
 /* FORM */
 
@@ -72,6 +74,22 @@ input[type="submit"]:hover{
     padding: 10px;
     margin: 5px 5px 25px 0;
 } 
+.error{
+    transition: background 0.3s ease-in-out;
+    text-align: center;
+    color: white;
+    width: 60%;
+    background: rgb(87, 87, 87);
+    border-radius: 50px;
+}
+.error h1{
+    font-size: 6em;
+    font-family: 'Poppins', sans-serif;
+}
+.error p{
+    font-size: 2em;
+    font-family: 'Poppins', sans-serif;
+}
 @media screen and (max-width: 890px){
     .new-edit-form{
         width: 75vw;

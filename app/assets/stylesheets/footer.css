@@ -25,5 +25,5 @@ footer a:visited{
 .footer-text a{
     text-decoration: none;
     color: white;
-    padding-right: 10px;
+    /*padding-right: 10px;*/
 }

@@ -14,5 +14,8 @@
 </table>
 </div>
 <% else %>
-capo que haces aca?
+<%= render  "errores/error", 
+descripcion: "No estas autorizado para ver este contenido",
+status_code: "401"
+%>
 <% end %>

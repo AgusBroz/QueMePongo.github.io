@@ -14,5 +14,8 @@
     </div>
 </div>
 <% else %>
-estas viendo un atuendo de otra persona
+<%= render  "errores/error", 
+descripcion: "¡No encontramos la pagina que esta buscando!",
+status_code: "401"
+%>
 <% end %>

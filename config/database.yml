@@ -10,12 +10,11 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   username: quemepongo
-  password: <%= ENV["APP_PASSWORD"] %>
+  password: quemepongo
 
 development:
   <<: *default
   database: que_me_pongo_development
-  host: localhost
   
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

@@ -5,8 +5,8 @@ class Usuario < ApplicationRecord
   has_many :atuendos
 
   
-  belongs_to :rol, required: false
-  before_create :asignar_rol
+  after_initialize :asignar_rol
+  belongs_to :rol
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -16,10 +16,12 @@ class Usuario < ApplicationRecord
   end
 
   def asignar_rol
-    self.rol_id=Rol.find_by(nombre: 0).id
+    self.rol ||= Rol.find_by(nombre: "normal") 
   end
-   
-  def validar_permisos
-    raise "?" unless es_admin?
-  end
+
+    
+  #def validar_permisos
+   # es_admin?
+  #end
+
 end
