@@ -4,7 +4,6 @@ class Usuario < ApplicationRecord
   has_many :guardarropas
   has_many :atuendos
 
-  
   after_initialize :asignar_rol
   belongs_to :rol
   

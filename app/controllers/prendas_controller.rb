@@ -46,7 +46,6 @@ class PrendasController < ApplicationController
     end
 
     def update
-
         if prenda_params[:guardarropa_id] && @prenda.update_attributes(prenda_params)
             redirect_to guardarropa_path(prenda_params[:guardarropa_id]), notice: t(:updated)
         else

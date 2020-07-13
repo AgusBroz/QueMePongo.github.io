@@ -19,6 +19,16 @@ body{
     margin: 0;
     font-size: 16px;
 }
+#alert{
+    display: none;
+    height: 20px;
+    color: white;
+    font-family: 'Open Sans';
+    font-size: 14px;
+}
+.alerta{
+    background-color: #f7be55;;
+}
 a{
     text-decoration: none;
 }
@@ -44,18 +54,24 @@ a:link{
 .interact-btn{
     margin-top: 1.5rem;
 }
+
 .interact-btn a,
-.interact-btn a:disabled{
+.interact-btn input[type=submit]{
+    border: none;
     text-decoration: none;
     font-family: "Open Sans";
     padding:15px;
-    background-color: rgb(58, 58, 58);
+    background-color: rgb(95, 95, 95);
     border-radius: 3px;
     text-align: center;
-    transition: ease-in-out all 0.3s;
-  }
+    transition: ease-in-out all 0.2s;
+}
   
-.interact-btn a:hover{
+.interact-btn a:hover,
+.interact-btn input[type=submit]:hover{
     background-color: rgb(78, 78, 78);
+}
+.shared-links:hover{
+    text-decoration: underline;
 }
 

@@ -10,4 +10,5 @@ class Atuendo < ApplicationRecord
     enum estilo: [:formal, :informal]
     enum estacion: [:verano, :primavera, :invierno, :otoño]
     enum puntaje: [:Nefasto, :Malo, :Normal, :"Muy Bueno", :Excelente]
+    
 end
