@@ -1,6 +1,7 @@
 <% if current_usuario.es_admin? %>
+
+<div style="text-align: center; color:white; font-family:'Open Sans';">
 <h1>Usuarios</h1>
-<div class="prendas">
 <table class="guardarropa">
 <%= render "atributos_usuario"%>
 <% @usuarios.each do |u| %>

@@ -6,7 +6,7 @@
     <% PrendaTipo.categoria.keys.each do |categoria| %>
         <p>
             <%= f.label categoria%><br />
-            <%= f.collection_select("prenda_#{categoria}_id", Prenda.joins(:prenda_tipo).where(prenda_tipos: {categoria: categoria}, guardarropa: guardarropa,usuario_id: current_usuario), :id, :nombre, selected: atuendo.send("prenda_#{categoria}_id"))%>
+            <%= f.collection_select("prenda_#{categoria}_id", Prenda.joins(:prenda_tipo).where(prenda_tipos: {categoria: categoria}, guardarropa: guardarropa,usuario_id: current_usuario), :id, :nombre, selected: atuendo.send("prenda_#{categoria}_id"), :include_blank => true)%>
         </p>
     <% end %>
 
@@ -35,7 +35,7 @@
     <% end %>
     </div>
 
-    <p>
+    <p class="interact-btn">
         <%= f.submit text %>
     </p>
 <%end%>

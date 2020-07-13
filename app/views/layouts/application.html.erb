@@ -13,6 +13,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ujs/1.2.2/rails.min.js" integrity="sha256-BbyWhCn0G+F6xbWJ2pcI5LnnpsnpSzyjJNVtl7ABp+M=" crossorigin="anonymous"></script>
   </head>
   <body>
+  <div class="alerta">
+    <div class="container" id="alert">
+    <% flash.each do |type, msg| %>
+          <p id="alert-text"><%= msg %><p>
+      <% end %>
+      <i class="far fa-times-circle" style="cursor: pointer;" id="close-alert"></i>
+    </div>
+  </div>
     <header>
     <div class="container nav-container">
       <h1><%= link_to "Que me pongo", '/' %></h1>
@@ -37,27 +45,36 @@
     </div>
     </header>
     <main>
-    <%= yield :landing %>
     <%= yield %> 
-    <!--<% flash.each do |type, msg| %>
-      <div class="flash-msg">
-        <%= msg %>
-      </div>
-    <% end %>  -->
     </main>
+    <%= yield :servicios%>
+    <%= yield :contacto%>
     <footer>
-    <div class="container">
-      <p>Copyright © Que me pongo 2020</p>
-      <div class="socialMedia">
-        <i class="fab fa-facebook-square fa-3x"></i>
-        <i class="fab fa-twitter-square fa-3x"></i>
-        <a href="https://github.com/AgusBroz/TP_Programacion-lll"><i class="fab fa-github-square fa-3x"></i></a>
+      <div class="container">
+        <p>Copyright © Que me pongo 2020</p>
+        <div class="socialMedia">
+          <i class="fab fa-facebook-square fa-3x"></i>
+          <i class="fab fa-twitter-square fa-3x"></i>
+          <a href="https://github.com/AgusBroz/TP_Programacion-lll"><i class="fab fa-github-square fa-3x"></i></a>
+        </div>
+        <div class="footer-text">
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Términos y Condiciones</a>
+        </div>
       </div>
-      <div class="footer-text">
-      <a href="#">Política de Privacidad</a>
-      <a href="#">Términos y Condiciones</a>
-      </div>
-    </div>
     </footer>
+    <script>
+      //Alertas
+      var alerta=document.getElementById("alert");
+      var cerrar=document.getElementById("close-alert");
+      cerrar.addEventListener("click", cerrarAlerta);
+
+      function cerrarAlerta() {
+        alerta.style.display='none'
+      }
+      if(document.getElementById("alert-text")){
+        alerta.style.display='flex';
+      }
+    </script>
   </body>
 </html>
