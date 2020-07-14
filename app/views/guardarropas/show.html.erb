@@ -14,7 +14,9 @@
         <%= link_to "Crear Atuendo",  new_guardarropa_atuendo_path(:guardarropa_id => @guardarropa.id), class: "interact-btn" %>
         <%= link_to "Crear Atuendo Aleatorio",  "/guardarropas/#{@guardarropa.id}/atuendo-aleatorio", class: "interact-btn" %>
       <% end %>
-      <%= link_to "Ver Atuendos", guardarropa_atuendos_path(:guardarropa_id => @guardarropa.id) %>
+      <% if @guardarropa.atuendos.present? %>
+       <%= link_to "Ver Atuendos", guardarropa_atuendos_path(:guardarropa_id => @guardarropa.id) %>
+      <% end %>
       <%= link_to "Volver", guardarropas_path %>
   </div>
 </div> 
