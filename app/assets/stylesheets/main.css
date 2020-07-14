@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 main{
-    height: 90vh;
+    min-height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background: linear-gradient(45deg, rgba(76,76,76,0.87) 0%, rgba(44,44,44,0.92) 40%, rgba(44,44,44,1) 100%);
+    overflow-y: auto;
 }
-
-
 
 /* FORM */
 
@@ -92,5 +91,10 @@ input[type="submit"]:hover{
         width: 75vw;
         height: auto;
         overflow-y: scroll;
+    }
+    .card{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }

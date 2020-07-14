@@ -24,10 +24,3 @@
 .action-btn-guardarropas i{
     color: black !important;
 }
-@media screen and (max-width: 890px){
-    .card{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-}

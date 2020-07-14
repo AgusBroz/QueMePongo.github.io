@@ -1,5 +1,8 @@
 <% if @guardarropa%>
 <div>
+  <% if !@prendas.present? %>
+    <h2 style = "font-family: 'Open Sans""> ¡Agrega tu primera prenda!</h2>
+  <% end %>
   <div class="prendas-view">
     <table class="guardarropa">
         <tr>  <%= render 'atributos_prenda', show: @prendas.present? %> </tr>

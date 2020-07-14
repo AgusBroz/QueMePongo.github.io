@@ -5,12 +5,16 @@ class AtuendosController < ApplicationController
     
     def index
         if(@guardarropa)
-            @atuendos=Atuendo.where(guardarropa_id: @guardarropa.id).order(ordenar_columna + " " + ordenar_direccion)
-            
-            if(params[:estilo] || params[:estacion])
-                @atuendos=@atuendos.where(estilo: params[:estilo]) if(params[:estilo] != "")
-                @atuendos=@atuendos.where(estacion: params[:estacion]) if(params[:estacion] != "")
+            if(!@guardarropa.atuendos.present?)
+                redirect_to guardarropa_path(@guardarropa)
+             else
+                @atuendos=Atuendo.where(guardarropa_id: @guardarropa.id).order(ordenar_columna + " " + ordenar_direccion)
+                
+                if(params[:estilo] || params[:estacion])
+                    @atuendos=@atuendos.where(estilo: params[:estilo]) if(params[:estilo] != "")
+                    @atuendos=@atuendos.where(estacion: params[:estacion]) if(params[:estacion] != "")
             end
+        end
             
         end
         
@@ -35,6 +39,10 @@ class AtuendosController < ApplicationController
         @prenda_torso=   Guardarropa.find(params[:guardarropa_id]).prendas.joins(:prenda_tipo).where(prenda_tipos: {categoria: :torso}).order('RANDOM()').first
         @prenda_piernas= Guardarropa.find(params[:guardarropa_id]).prendas.joins(:prenda_tipo).where(prenda_tipos: {categoria: :piernas}).order('RANDOM()').first
         @prenda_pies=    Guardarropa.find(params[:guardarropa_id]).prendas.joins(:prenda_tipo).where(prenda_tipos: {categoria: :pies}).order('RANDOM()').first
+
+        if(!@prenda_cabeza || !@prenda_torso || !@prenda_piernas || !@prenda_pies)
+            redirect_to guardarropa_path(@guardarropa), notice: "¡Cuidado! Para crear un atuendo aleatorio necesitas al menos una prenda de cada tipo"
+        end
         
     end
 

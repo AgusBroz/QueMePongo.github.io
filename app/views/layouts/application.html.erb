@@ -29,7 +29,7 @@
       </div>
       <nav class="navigation">
         <ul>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="https://www.facebook.com/queme.pongo.56884" target="_blank">Contacto</a></li>
           <li><p><%= link_to "Guardarropas", guardarropas_path%></p></li>
         <% if signed_in? %>
           <% if (Usuario.find(current_usuario.id).rol.nombre == "administrador") %>

@@ -66,9 +66,6 @@ header{
         transition: 0.2s linear;
         background-color: rgb(98, 125, 126);
     }
-    .nav-container h1{
-        font-size: 1.5rem;
-    }
 }
 
 
