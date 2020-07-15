@@ -16,16 +16,16 @@ ActiveRecord::Schema.define(version: 2020_07_09_183529) do
   enable_extension "plpgsql"
 
   create_table "atuendos", force: :cascade do |t|
-    t.bigint "prenda_torso_id"
-    t.bigint "prenda_piernas_id"
-    t.bigint "prenda_cabeza_id"
-    t.bigint "prenda_pies_id"
+    t.integer "prenda_torso_id"
+    t.integer "prenda_piernas_id"
+    t.integer "prenda_cabeza_id"
+    t.integer "prenda_pies_id"
     t.integer "puntaje"
     t.string "descripcion"
-    t.bigint "guardarropa_id"
+    t.integer "guardarropa_id"
     t.integer "estilo"
     t.integer "estacion"
-    t.bigint "usuario_id"
+    t.integer "usuario_id"
     t.index ["guardarropa_id"], name: "index_atuendos_on_guardarropa_id"
     t.index ["prenda_cabeza_id"], name: "index_atuendos_on_prenda_cabeza_id"
     t.index ["prenda_piernas_id"], name: "index_atuendos_on_prenda_piernas_id"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_07_09_183529) do
 
   create_table "guardarropas", force: :cascade do |t|
     t.string "nombre"
-    t.bigint "usuario_id"
+    t.integer "usuario_id"
     t.index ["usuario_id"], name: "index_guardarropas_on_usuario_id"
   end
 
@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(version: 2020_07_09_183529) do
     t.string "color"
     t.string "color_secundario"
     t.integer "textura"
-    t.bigint "prenda_tipo_id"
-    t.bigint "guardarropa_id"
+    t.integer "prenda_tipo_id"
+    t.integer "guardarropa_id"
     t.string "nombre"
-    t.bigint "usuario_id"
+    t.integer "usuario_id"
     t.index ["guardarropa_id"], name: "index_prendas_on_guardarropa_id"
     t.index ["prenda_tipo_id"], name: "index_prendas_on_prenda_tipo_id"
     t.index ["usuario_id"], name: "index_prendas_on_usuario_id"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_07_09_183529) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "rol_id"
+    t.integer "rol_id"
     t.index ["email"], name: "index_usuarios_on_email", unique: true
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
     t.index ["rol_id"], name: "index_usuarios_on_rol_id"
