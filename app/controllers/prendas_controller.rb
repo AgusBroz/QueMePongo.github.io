@@ -31,6 +31,7 @@ class PrendasController < ApplicationController
     def create
         @prenda=Prenda.new(prenda_params)
         @prenda.prenda_tipo=PrendaTipo.find(prenda_params[:prenda_tipo_id]) 
+        @prenda.textura=Textura.find(prenda_params[:textura_id])
         @prenda.usuario= current_usuario
         if(prenda_params[:guardarropa_id]) #poner verificacion en el #new y no aqui en el create ¿vió?
         @prenda.guardarropa=Guardarropa.find(prenda_params[:guardarropa_id]) 
@@ -55,7 +56,7 @@ class PrendasController < ApplicationController
 
     private
     def prenda_params
-       params.require(:prenda).permit(:nombre, :color, :color_secundario, :textura, :prenda_tipo_id, :guardarropa_id)     
+       params.require(:prenda).permit(:nombre, :color, :color_secundario, :textura_id, :prenda_tipo_id, :guardarropa_id)     
     end
 
     def set_prenda

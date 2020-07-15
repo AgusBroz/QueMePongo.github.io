@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_09_183529) do
+ActiveRecord::Schema.define(version: 2020_07_15_200049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,18 +48,23 @@ ActiveRecord::Schema.define(version: 2020_07_09_183529) do
   create_table "prendas", force: :cascade do |t|
     t.string "color"
     t.string "color_secundario"
-    t.integer "textura"
     t.bigint "prenda_tipo_id"
     t.bigint "guardarropa_id"
     t.string "nombre"
     t.bigint "usuario_id"
+    t.bigint "textura_id"
     t.index ["guardarropa_id"], name: "index_prendas_on_guardarropa_id"
     t.index ["prenda_tipo_id"], name: "index_prendas_on_prenda_tipo_id"
+    t.index ["textura_id"], name: "index_prendas_on_textura_id"
     t.index ["usuario_id"], name: "index_prendas_on_usuario_id"
   end
 
   create_table "rols", force: :cascade do |t|
     t.string "nombre"
+  end
+
+  create_table "texturas", force: :cascade do |t|
+    t.integer "textura"
   end
 
   create_table "usuarios", force: :cascade do |t|

@@ -11,7 +11,7 @@
 
     <p>
         <%= f.label :textura%><br />
-        <%= f.select(:textura, options_for_select(Prenda.texturas.keys.to_a, selected: prenda.textura)) %>
+       <%= f.collection_select :textura_id, Textura.all, :id, :textura, selected: prenda.textura_id%>
     </p>
 
     <p>
