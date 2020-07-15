@@ -3,7 +3,7 @@ class GuardarropasController < ApplicationController
     before_action :set_guardarropa,only:[:show, :destroy, :update, :edit]
 
     def index
-        @guardarropas = Guardarropa.where(usuario_id: current_usuario.id)
+        @guardarropas = Guardarropa.where(usuario_id: current_usuario.id).paginate(page: params[:page], per_page: 4)
     end
 
     def new
@@ -23,7 +23,7 @@ class GuardarropasController < ApplicationController
     def show
         #@prendas= Prenda.all.select{|p| p.guardarropa_id == params[:id].to_i}
         if(@guardarropa)
-        @prendas=Prenda.where(guardarropa_id: @guardarropa.id)
+        @prendas=Prenda.where(guardarropa_id: @guardarropa.id).paginate(page: params[:page], per_page: 6)
         end
     end
     

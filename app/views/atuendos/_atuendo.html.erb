@@ -33,14 +33,14 @@
             <%if(atuendo.estacion)%>
              <%= atuendo.estacion %>
             <%else%>
-                No se selecciono estacion
+                <%= link_to  "Seleccionar estacion", edit_guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => atuendo.id), class: "shared-links"  %>               
             <%end%>
     </td>
     <td>
             <%if(atuendo.estilo)%>
              <%= atuendo.estilo %>
             <%else%>
-                No se selecciono estilo
+                <%= link_to  "Seleccionar estilo", edit_guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => atuendo.id), class: "shared-links"  %>               
             <%end%>
     </td>
     <td>
@@ -48,7 +48,7 @@
                 <%= atuendo.read_attribute_before_type_cast(:puntaje)+1 %>
                 (<%= atuendo.puntaje %>)
             <% else %>
-                NaN
+                <%= link_to  "Seleccionar puntaje", edit_guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => atuendo.id), class: "shared-links"  %>
             <% end %>
     </td>
     <td colspan="3">

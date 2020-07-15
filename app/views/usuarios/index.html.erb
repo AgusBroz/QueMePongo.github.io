@@ -1,8 +1,8 @@
 <% if current_usuario.es_admin? %>
-
+<div>
 <div style="text-align: center; color:white; font-family:'Open Sans';">
 <h1>Usuarios</h1>
-<table class="guardarropa">
+<table class="tabla">
 <%= render "atributos_usuario"%>
 <% @usuarios.each do |u| %>
     <tr>
@@ -14,6 +14,10 @@
 <% end %>
 </table>
 </div>
+  <div class="paginacion">
+    <%= will_paginate @usuarios, :container=> false, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
+  </div>
+  </div>
 <% else %>
 <%= render  "errores/error", 
 descripcion: "No estas autorizado para ver este contenido",

@@ -2,14 +2,16 @@
   <% @guardarropas.each do |g| %>
     <%= render 'guardarropa', guardarropa: g %>
   <%end%>
-<div class="interact-btn">
-  <%= link_to "Crear Guardarropa", new_guardarropa_path%>
-  <% if @guardarropas.present?%>
-  <%= link_to "Crear Prenda", new_prenda_path%> 
-  <% end %>
-  <% if (Prenda.where(usuario_id: current_usuario, guardarropa_id: nil).count != 0 )%>
-  <%= link_to "Prendas sueltas", prendas_path%>
-  <% end %>
-</div>
-      
+  <div class="interact-btn">
+    <%= link_to "Crear Guardarropa", new_guardarropa_path%>
+    <% if @guardarropas.present?%>
+    <%= link_to "Crear Prenda", new_prenda_path%> 
+    <% end %>
+    <% if (Prenda.where(usuario_id: current_usuario, guardarropa_id: nil).count != 0 )%>
+    <%= link_to "Prendas sueltas", prendas_path%>
+    <% end %>
+  </div> 
+      <div class="paginacion">
+        <%= will_paginate @guardarropas, :container=> false, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
+    </div>
 </div>

@@ -28,7 +28,7 @@ body{
     font-weight: bold;
 }
 .alerta{
-    background-color: #f7be55;;
+    background-color: #f7be55;
 }
 a{
     text-decoration: none;
@@ -53,7 +53,7 @@ a:link{
     color: rgb(0, 0, 0);
 }
 .interact-btn{
-    margin-top: 1.5rem;
+    margin-top: 24px;
 }
 
 .interact-btn a,
@@ -74,5 +74,51 @@ a:link{
 }
 .shared-links:hover{
     text-decoration: underline;
+}
+.paginacion {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    cursor: default;
+    /* self-clearing method: */ 
+}
+.paginacion a, .paginacion span, .paginacion em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px; 
+}
+.paginacion .disabled {
+    color: #999999;
+    border: 1px solid #999999;
+}
+.paginacion .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: rgb(29, 29, 29);
+    color: white;
+    border: 1px solid #ffffff; 
+}
+.paginacion a {
+    text-decoration: none;
+    color: #ffffff;
+    border: 1px solid #ffffff; 
+}
+.paginacion a:hover, .paginacion a:focus {
+    color: #000000;
+    border-color: #000000; 
+}
+.paginacion:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+* html .paginacion {
+    height: 1%; 
+}
+*:first-child + html .paginacion {
+    overflow: hidden; 
 }
 

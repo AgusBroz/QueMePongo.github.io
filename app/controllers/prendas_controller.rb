@@ -3,7 +3,7 @@ class PrendasController < ApplicationController
     before_action :set_prenda,only:[:show, :destroy, :update, :edit]
     
     def index
-        @prendas = Prenda.where(guardarropa_id: nil, usuario_id: current_usuario)
+        @prendas = Prenda.where(guardarropa_id: nil, usuario_id: current_usuario).paginate(page: params[:page], per_page: 6)
     end
 
     def show

@@ -1,6 +1,6 @@
 <div>
     <div class="prendas-view">
-      <table class="guardarropa">
+      <table class="tabla">
 
         <tr>  <%= render 'atributos_prenda', show: true%> </tr>
         <tr>
@@ -9,6 +9,6 @@
       </table>
     </div>
     <div class="interact-btn">
-        <%= link_to  "Volver", guardarropa_path(@prenda.guardarropa) %>
+        <%= link_to  "Volver", prendas_path %>
     </div>
 </div>

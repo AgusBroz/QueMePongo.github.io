@@ -8,7 +8,7 @@ class AtuendosController < ApplicationController
             if(!@guardarropa.atuendos.present?)
                 redirect_to guardarropa_path(@guardarropa)
              else
-                @atuendos=Atuendo.where(guardarropa_id: @guardarropa.id).order(ordenar_columna + " " + ordenar_direccion)
+                @atuendos=Atuendo.where(guardarropa_id: @guardarropa.id).order(ordenar_columna + " " + ordenar_direccion).paginate(page: params[:page], per_page: 6)
                 
                 if(params[:estilo] || params[:estacion])
                     @atuendos=@atuendos.where(estilo: params[:estilo]) if(params[:estilo] != "")

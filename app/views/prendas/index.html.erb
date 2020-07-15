@@ -1,11 +1,19 @@
 <div>
   <div class="prendas-view">
-    <table class="guardarropa">
+  <% if !@prendas.present?%>
+  <h2 style = "font-family: 'Open Sans""> Todas las prendas estan en un guardarropas :)</h2>
+  <% end %>
+    <table class="tabla">
          <tr>  <%= render 'atributos_prenda', show: @prendas.present? %> </tr>
         <% @prendas.each do |p| %>
             <%= render 'prenda', prenda: p, guardarropa: @guardarropa, show_show: true %>
         <%end%>
     </table>
-
   </div>
+    <div class="interact-btn">
+        <%= link_to  "Volver", guardarropas_path %>
+    </div>
+    <div class="paginacion">
+        <%= will_paginate @usuarios, :container=> false, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
+    </div>
 </div>

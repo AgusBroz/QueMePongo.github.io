@@ -4,30 +4,30 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Arial';
+    font-family: 'Open Sans';
     text-transform: capitalize;
     
 }
-.guardarropa{
+.tabla{
     border: 2px solid black;
     text-align: center;
     border-collapse: collapse;
 }
-.guardarropa th{ 
+.tabla th{ 
     padding: 15px;
     text-align: center;
     background-color: rgb(39, 39, 39);
     border: solid 2.5px black;
     color: white;
 }
-.guardarropa td{
+.tabla td{
     padding:12px;
     text-align: center;
     color: white;
     background-color: rgb(58, 58, 58);
     border: 2.5px solid black;
 }
-.guardarropa a{
+.tabla a{
     color:white;
     text-decoration: none;
 }

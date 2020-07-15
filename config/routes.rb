@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
 
     get 'usuarios', to: 'usuarios#index'
+    get '*path', to: 'errores#error_404', via: :all
     
   # post 'prendas', to: 'prendas#create'
   # get 'prendas/new', to: 'prendas#new'
