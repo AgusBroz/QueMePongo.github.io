@@ -1,4 +1,4 @@
-<% if @guardarropa%>
+
 <div>
   <% if !@prendas.present? %>
     <h2 style = "font-family: 'Open Sans""> ¡Agrega tu primera prenda!</h2>
@@ -26,11 +26,3 @@
     <%= will_paginate @prendas, :container=> false, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
   </div>
 </div> 
-
-<% else %>
-<%= render  "errores/error", 
-descripcion: "¡No encontramos la pagina que esta buscando!",
-status_code: "401"
-%>
-
-<% end %>

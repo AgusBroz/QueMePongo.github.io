@@ -7,6 +7,9 @@ class PrendasController < ApplicationController
     end
 
     def show
+        if(!validado?)
+            redirect_to guardarropas_path, notice: t(:error) 
+        end
     end
     
     def destroy
@@ -16,7 +19,7 @@ class PrendasController < ApplicationController
             if pId!=nil
                 redirect_to guardarropa_path(pId) ,notice: t(:deleted) 
             else
-                redirect_to prendas_path                
+                redirect_to prendas_path, notice: t(:deleted)             
             end
         end
     end 
@@ -62,5 +65,7 @@ class PrendasController < ApplicationController
         @prenda= Prenda.find(params[:id].to_i)
     end
 
-
+    def validado?
+        set_prenda.usuario==current_usuario
+    end
 end
