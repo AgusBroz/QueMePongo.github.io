@@ -2,31 +2,31 @@ class AtuendosController < ApplicationController
 
     before_action :set_guardarropa
     helper_method :ordenar_columna,:ordenar_direccion
+    before_action :set_atuendo, only: [:show, :edit, :update, :destroy]
     
     def index
-        if(@guardarropa)
+
+        if(validado?)
             if(!@guardarropa.atuendos.present?)
                 redirect_to guardarropa_path(@guardarropa)
-             else
+            else
                 @atuendos=Atuendo.where(guardarropa_id: @guardarropa.id).order(ordenar_columna + " " + ordenar_direccion).paginate(page: params[:page], per_page: 6)
                 
                 if(params[:estilo] || params[:estacion])
                     @atuendos=@atuendos.where(estilo: params[:estilo]) if(params[:estilo] != "")
                     @atuendos=@atuendos.where(estacion: params[:estacion]) if(params[:estacion] != "")
+                end
             end
+        else
+            redirect_to guardarropas_path, notice: t(:error)
         end
-            
-        end
-        
     end
 
     def show
-        @atuendo= Atuendo.find_by(id: params[:id].to_i, usuario_id: current_usuario.id)
     end    
     
     def destroy
-        aId=Atuendo.find(params[:id].to_i).id
-        @atuendo= Atuendo.find(params[:id].to_i)
+        aId=set_atuendo.id
         if @atuendo.destroy
             redirect_to guardarropa_atuendos_path(:guardarropa_id => @guardarropa.id), notice: t(:deleted)
         end
@@ -60,11 +60,9 @@ class AtuendosController < ApplicationController
     end
 
     def edit
-        @atuendo= Atuendo.find(params[:id].to_i)
     end
 
     def update
-        @atuendo= Atuendo.find(params[:id].to_i)
         if @atuendo.update_attributes(atuendo_params)
             redirect_to guardarropa_atuendos_path, notice: t(:updated)
         else
@@ -82,7 +80,7 @@ class AtuendosController < ApplicationController
     end
 
     def set_guardarropa
-        @guardarropa= Guardarropa.find_by(id: params[:guardarropa_id].to_i, usuario_id: current_usuario.id)
+        @guardarropa= Guardarropa.find(params[:guardarropa_id].to_i)
     end
 
     def ordenar_columna
@@ -93,4 +91,7 @@ class AtuendosController < ApplicationController
         %w[asc desc].include?(params[:direccion]) ? params[:direccion] : "desc"
     end
 
+    def validado?
+        set_guardarropa.usuario=current_usuario;
+    end
 end

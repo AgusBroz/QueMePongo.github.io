@@ -1,4 +1,3 @@
-<%if @atuendo%>
 <div>
     <div class="prendas-view">
       <table class="tabla">
@@ -13,9 +12,3 @@
         <%= link_to  "Volver", guardarropa_atuendos_path(@atuendo.guardarropa) %>
     </div>
 </div>
-<% else %>
-  <%= render  "errores/error", 
-  descripcion: "¡No encontramos la pagina que esta buscando!",
-  status_code: "401"
-  %>
-<% end %>

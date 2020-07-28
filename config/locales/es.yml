@@ -2,6 +2,7 @@ es:
   created: "Se creó exitosamente"
   deleted: "Se elimino correctamente"
   updated: "Se actualizo correctamente"
+  error: "¡Ocurrio un error!"
   activerecord:
     errors:
       models:

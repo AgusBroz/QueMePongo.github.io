@@ -1,6 +1,6 @@
 class GuardarropasController < ApplicationController
 
-    before_action :set_guardarropa,only:[:show, :destroy, :update, :edit]
+    before_action :set_guardarropa, only:[:show, :destroy, :update, :edit]
 
     def index
         @guardarropas = Guardarropa.where(usuario_id: current_usuario.id).paginate(page: params[:page], per_page: 4)
@@ -21,9 +21,11 @@ class GuardarropasController < ApplicationController
     end
 
     def show
-        #@prendas= Prenda.all.select{|p| p.guardarropa_id == params[:id].to_i}
-        if(@guardarropa)
-        @prendas=Prenda.where(guardarropa_id: @guardarropa.id).paginate(page: params[:page], per_page: 6)
+
+        if(validado?)
+            @prendas=Prenda.where(guardarropa_id: @guardarropa.id).paginate(page: params[:page], per_page: 6)
+        else
+            redirect_to guardarropas_path, notice: t(:error)
         end
     end
     
@@ -33,10 +35,12 @@ class GuardarropasController < ApplicationController
     def destroy
         @prendas=Prenda.where(guardarropa_id: @guardarropa.id)
         @atuendos=@guardarropa.atuendos
+
         @prendas.each do |p|
             p.guardarropa_id= nil; 
             p.save!
         end 
+
         @atuendos.each do |a|
             a.destroy!
         end
@@ -61,6 +65,10 @@ class GuardarropasController < ApplicationController
     end
 
     def set_guardarropa
-        @guardarropa= Guardarropa.find_by(id: params[:id].to_i, usuario_id: current_usuario.id)
+        @guardarropa= Guardarropa.find(params[:id])
+    end
+
+    def validado?
+        set_guardarropa.usuario==current_usuario
     end
 end
