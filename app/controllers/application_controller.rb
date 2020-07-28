@@ -3,18 +3,17 @@ class ApplicationController < ActionController::Base
 
     NotAuthorized = Class.new(StandardError)
 
-    rescue_from ActionController::RoutingError, with: -> { render_404 }
+    rescue_from ActionController::RoutingError, with: :render_404  
     rescue_from ActiveRecord::RecordNotFound, with: :render_404  
+    rescue_from ApplicationController::NotAuthorized do |exception|
+        render_error_page(status: 401)
+    end
 
     def render_404
         respond_to do |format|
             format.html { render template: 'errores/error_404', status: 404 }
             format.all { render nothing: true, status: 404 }
         end
-    end
-
-    rescue_from ApplicationController::NotAuthorized do |exception|
-        render_error_page(status: 401)
     end
 
     def render_error_page(status:)
