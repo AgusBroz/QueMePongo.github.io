@@ -30,6 +30,10 @@ body{
 .alerta{
     background-color: #f7be55;
 }
+button{
+    text-decoration: none;
+    color: white;
+}
 a{
     text-decoration: none;
 }
@@ -57,6 +61,7 @@ a:link{
 }
 
 .interact-btn a,
+.interact-btn button,
 .interact-btn input[type=submit]{
     border: none;
     text-decoration: none;
@@ -66,9 +71,20 @@ a:link{
     border-radius: 3px;
     text-align: center;
     transition: ease-in-out all 0.2s;
+    margin-right: 1rem;
+}
+.interact-btn .green{
+    background-color: rgb(20, 136, 20);
+}
+.interact-btn .red{
+    background-color: rgb(206, 22, 22);
+}
+.interact-btn .blue{
+    background-color: rgb(22, 71, 206);
 }
   
 .interact-btn a:hover,
+.interact-btn button:hover,
 .interact-btn input[type=submit]:hover{
     background-color: rgb(78, 78, 78);
 }
@@ -121,4 +137,3 @@ a:link{
 *:first-child + html .paginacion {
     overflow: hidden; 
 }
-

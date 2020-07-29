@@ -35,12 +35,14 @@
     <% end %>
     </div>
 
-    <p class="interact-btn">
-        <%= f.submit text %>
-    </p>
+    <div class="interact-btn">
+        <%= button_tag :class => "interact-btn green" do %>
+             <i class="fas fa-check"></i>
+        <% end %>
+        <%= link_to :back, :class => "interact-btn red" do %>
+            <i class="fas fa-times"></i>
+        <% end %>
+    </div>
 <%end%>
-</div>
-<div class="interact-btn">
-<%= link_to  "Volver", :back %>
 </div>
 </div>

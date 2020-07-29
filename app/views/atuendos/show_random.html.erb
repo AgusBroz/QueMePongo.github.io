@@ -49,10 +49,18 @@
         <%= f.label :puntaje, e%>
     <% end %>
     </div>
-    <div class="interact-btn">
-        <%= f.submit "Guardar"%>
-        <%= link_to  "No Guardar", guardarropa_path(@guardarropa.id) %>
-        <%= link_to  "Generar otro", "/guardarropas/#{@guardarropa.id}/atuendo-aleatorio" %>
+
+        <div class="interact-btn">
+        <%= button_tag :class => "interact-btn green" do %>
+             <i class="fas fa-check"></i>
+        <% end %>
+        <%= link_to guardarropa_path(@guardarropa.id), :class => "interact-btn red" do %>
+            <i class="fas fa-times"></i>
+        <% end %>
+        <%= link_to "/guardarropas/#{@guardarropa.id}/atuendo-aleatorio", :class => "interact-btn blue" do %>
+            <i class="fas fa-redo-alt"></i>
+        <% end %>
     </div>
+
 <% end %>
 </div>
