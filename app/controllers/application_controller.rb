@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
     NotAuthorized = Class.new(StandardError)
 
+    #rescue frome xception, status 500
     rescue_from ActionController::RoutingError, with: :render_404  
     rescue_from ActiveRecord::RecordNotFound, with: :render_404  
     rescue_from ApplicationController::NotAuthorized do |exception|
